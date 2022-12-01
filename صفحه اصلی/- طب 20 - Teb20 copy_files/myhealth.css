@@ -1,0 +1,13 @@
+﻿.btnShowMoreListWr_MyHealth {
+    bottom: 10px;
+    margin-right: 30%;
+    z-index: 7;
+}
+
+@media screen and (max-width : 360px) {
+    .btnShowMoreListWr_MyHealth {
+        bottom: 10px;
+        margin-right: 25%;
+        z-index: 7;
+    }
+}

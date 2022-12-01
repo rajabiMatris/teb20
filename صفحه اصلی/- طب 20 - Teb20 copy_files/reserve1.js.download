@@ -1,0 +1,549 @@
+﻿"use strict";
+
+var insuranceList;
+
+
+
+
+
+
+
+
+
+
+
+
+function getPersonIdentity(nationalCode, birthDate) {
+    if (nationalCode.length < 10) {
+        return false;
+    }
+
+    if (birthDate.length < 5) {
+        return false;
+    }
+
+    if ($("#CheckPersonIdentity").val() && $("#CheckPersonIdentity").val() === "true") {
+        checkPersonIdentity(nationalCode, birthDate);
+    }
+}
+
+function getUserInfo() {
+    $(".choose-person").slideUp(100);
+    $(".reserve-form").before('<div class="progress"><div class="indeterminate"></div></div>');
+
+    var formData = $("#ReserveForm").serialize();
+    $.get("/Home/GetUserInfo", formData, function (data) {
+        if (data.Status) {
+            $("#DisplayNationalCode").val(data.UserInfo.nationalCode);
+            $("#DisplayBirthDate").val(data.UserInfo.birthDate.replace(/-/g, "/"));
+            $("#DisplayFullName").val(data.UserInfo.firstName + ' ' + data.UserInfo.lastName);
+            $("#DisplayFather").val(data.UserInfo.fatherName);
+            $("#nationalCode").val(data.UserInfo.nationalCode);
+            $("#firstName").val(data.UserInfo.firstName);
+            $("#lastName").val(data.UserInfo.lastName);
+            $("#fatherName").val(data.UserInfo.fatherName);
+            var bDate = data.UserInfo.birthDate;
+            //console.log("birthDate: " + data.UserInfo.birthDate);
+            if (bDate && bDate.length > 7) {
+                //console.log("bDate: " + bDate);
+                var bDateArr = bDate.split("-");
+                if (bDateArr.length > 2) {
+                    //console.log("bDateArr: " + bDateArr);
+                    $("#birthDay").val(bDateArr[2]);
+                    $("#birthMonth").val(bDateArr[1]);
+                    $("#birthYear").val(bDateArr[0]);
+                }
+                else {
+                    bDateArr = bDate.split("/");
+                    if (bDateArr.length > 2) {
+                        //console.log("bDateArr: " + bDateArr);
+                        $("#birthDay").val(bDateArr[2]);
+                        $("#birthMonth").val(bDateArr[1]);
+                        $("#birthYear").val(bDateArr[0]);
+                    }
+                }
+            }
+            $("#birthDate").val(data.UserInfo.birthDate);
+            $("#cityId").val(data.UserInfo.cityId);
+            $("#mobile").val(data.UserInfo.phoneNumber);
+            $("#address").val(data.UserInfo.address);
+
+            $("#ItemNationalCode").text(data.UserInfo.nationalCode);
+            $("#ItemFirstName").text(data.UserInfo.firstName);
+            $("#ItemLastName").text(data.UserInfo.lastName);
+            $("#ItemFatherName").text(data.UserInfo.fatherName);
+            $("#ItemMobile").text(data.UserInfo.phoneNumber);
+            if ($("#postalCode").val())
+                $("#ItemPostalCode").text(data.UserInfo.postalCode);
+            if ($("#address").val())
+                $("#ItemAddress").text(data.UserInfo.address);
+
+            $(".userinfo-container").show();
+            $(".reserve-form").slideDown(800);
+            $(".reserve-form").siblings(".progress").remove();
+
+            //$("#firstName").val(data.UserInfo.firstName);
+            //$("#lastName").val(data.UserInfo.lastName);
+            //$("#nationalCode").val(data.UserInfo.nationalCode);
+            //$("#fatherName").val(data.UserInfo.fatherName);
+            //$("#birthDate").val(data.UserInfo.birthDate);
+            //$("#mobile").val(data.UserInfo.phoneNumber);
+            //$("#postalCode").val(data.UserInfo.postalCode);
+            //$("#address").val(data.UserInfo.address);
+            //$("#birthDay").val(data.UserInfo.birthDay);
+            //$("#birthMonth").val(data.UserInfo.birthMonth);
+            //$("#birthYear").val(data.UserInfo.birthYear);
+            $("#insuranceId").val(data.UserInfo.insuranceId).trigger("change");
+            $("#supplementaryInsuranceId").val(data.UserInfo.supplementaryInsuranceId).trigger("change");
+
+            $("#cityId").val(data.UserInfo.cityId).trigger("change");
+            $("#insuranceNumber").val(data.UserInfo.insuranceNumber);
+            //$("#cityId").val("audi").trigger("change");
+
+            //$("#firstName").siblings("label").addClass("active");
+            //$("#lastName").siblings("label").addClass("active");
+            //$("#nationalCode").siblings("label").addClass("active");
+            //$("#fatherName").siblings("label").addClass("active");
+            //$("#mobile").siblings("label").addClass("active");
+            //$("#postalCode").siblings("label").addClass("active");
+            //$("#address").siblings("label").addClass("active");
+            $("#insuranceNumber").siblings("label").addClass("active");
+$("#insuranceDate").siblings("label").addClass("active");
+            $(".secword-input").hide();
+        }
+        else {
+            M.toast({ html: data.Message });
+        }
+    });
+}
+
+function checkPersonIdentity(nationalCode, birthDate) {
+    if (checkIdentity.enabled) {
+        $.ajax({
+            url: "/Home/CheckPersonIdentity",
+            contentType: 'application/json; charset=utf-8',
+            type: "GET",
+            dataType: "JSON",
+            async: true,
+            data: {
+                nationalCode: nationalCode,
+                birthDate: birthDate
+            },
+            beforeSend: function () {
+                $(".reserve-preloader").show();
+            },
+            success: function (response) {
+                $(".reserve-preloader").hide();
+
+                if (response != null) {
+                    if (response.result) {
+                        $("#firstName").val(response.info.firstName);
+                        $("#lastName").val(response.info.lastName);
+                        $("#fatherName").val(response.info.fatherName);
+                        //$("#gender").val();
+                    }
+                    else {
+                        M.toast({ html: 'اطلاعات بیمار در سیستم استعلام هویت پیدا نشد!', displayLength: 3000 });
+                    }
+                }
+                else {
+                    M.toast({ html: 'سرور پاسخگو نیست، لطفا بعدا مراجعه نمایید.', displayLength: 3000 });
+                }
+            },
+            error: function (xhr, status, error) {
+                $(".reserve-preloader").hide();
+                M.toast({ html: 'سرور پاسخگو نیست، لطفا بعدا مراجعه نمایید.', displayLength: 3000 });
+            }
+        });
+    }
+}
+
+function checkPhoneNumber(elem) {
+    var phone = $(elem).val();
+    if (phone.length === 11) {
+        $.ajax({
+            url: "/Home/CheckPhoneStstus",
+            contentType: 'application/json; charset=utf-8',
+            type: "GET",
+            dataType: "JSON",
+            async: true,
+            data: {
+                phone: phone,
+            },
+            beforeSend: function () {
+                $(".reserve-preloader").show();
+            },
+            success: function (response) {
+                $(".reserve-preloader").hide();
+
+                if (response) {
+                    if (response.status) {
+                        $("#SubmitReserve").removeClass("invalide");
+                    }
+                    else {
+                        $(elem).after($("<div>", { for: 'mobile', class: 'error', text: response.message }));
+                        //<div for="mobile" class="error">لطفا تلفن همراه را وارد نمایید</div>
+                        $("#SubmitReserve").addClass("invalide");
+                    }
+                }
+                else {
+                    M.toast({ html: 'سرور پاسخگو نیست، لطفا بعدا مراجعه نمایید.', displayLength: 3000 });
+                }
+            },
+            error: function (xhr, status, error) {
+                $(".reserve-preloader").hide();
+                M.toast({ html: 'سرور پاسخگو نیست، لطفا بعدا مراجعه نمایید.', displayLength: 3000 });
+            }
+        });
+    }
+}
+
+function checkNationalCode(elem, btnId) {
+    var code = $(elem).val();
+    if (code.length === 10) {
+        //console.log("checkNationalCode: " + code);
+        $.ajax({
+            url: "/Home/CheckNationalCode",
+            contentType: 'application/json; charset=utf-8',
+            type: "GET",
+            dataType: "JSON",
+            async: true,
+            data: {
+                code: code,
+            },
+            beforeSend: function () {
+                $(".reserve-preloader").show();
+            },
+            success: function (response) {
+                $(".reserve-preloader").hide();
+
+                if (response) {
+                    if (response.status) {
+                        $(btnId).removeClass("invalide");
+                        //$("#SubmitReserve").removeClass("invalide");
+                    }
+                    else {
+                        $(elem).siblings(".error").remove();
+                        $(elem).after($("<div>", { class: 'error', text: response.message }));
+                        //<div for="mobile" class="error">لطفا تلفن همراه را وارد نمایید</div>
+                        $(btnId).addClass("invalide");
+                    }
+                }
+                else {
+                    M.toast({ html: 'سرور پاسخگو نیست، لطفا بعدا مراجعه نمایید.', displayLength: 3000 });
+                }
+            },
+            error: function (xhr, status, error) {
+                $(".reserve-preloader").hide();
+                M.toast({ html: 'سرور پاسخگو نیست، لطفا بعدا مراجعه نمایید.', displayLength: 3000 });
+            }
+        });
+    }
+}
+
+function checkAppointment() {
+    $.get("/Home/CheckAppointment", {
+        appointmentId: $("#appointmentId").val(),
+        nationalCode: $("#nationalCode").val()
+    }, function (data) {
+        if (data) {
+            if (data.status) {
+                M.toast({ html: "شما تنها 10 دقیقه فرصت دارید این نوبت را رزرو و تایید نهایی کنید", displayLength: 3000 });
+                //$("#SubmitReserve").removeClass("selected");
+                $("#SubmitReserve").addClass("confirmed");
+                $("#ReserveForm").submit();
+            }
+            else {
+                M.toast({ html: data.message, displayLength: 3000 });
+            }
+        }
+        else {
+            M.toast({ html: 'مشکلی پیش آمده است، لطفا بعدا دوباره تلاش نمایید', displayLength: 2000 });
+        }
+    });
+}
+
+function getAppointments() {
+    var clinicId = $("#clinicId").val();
+    var doctorId = $("#doctorId").val();
+    var shiftId = $("#shiftId").val();
+    var reserveDateFa = $("#reserveDateFa").val();
+
+    $(".reserve-info-container").hide();
+    $(".reserve-preloader").show();
+    $(".appointment-calendar").load("/Home/DoctorAppointments", {
+        clinicId: clinicId,
+        doctorId: doctorId,
+        shiftId: shiftId,
+        reserveDate: reserveDateFa
+    }, function () {
+        $(".reserve-info-container").slideUp(500);
+        $(".appointment-calendar").slideDown(800);
+        $(".reserve-preloader").hide();
+    });
+}
+
+function initReservePreview(isAppointment) {
+    var insuranceSelect = $('#insuranceId').select2('data');
+    var supplementaryInsuranceSelect = $('#supplementaryInsuranceId').select2('data');
+    var citySelect = $('#cityId').select2('data');
+
+    $("#ItemNationalCode").text(convertToPersianNumber($("#nationalCode").val()));
+    $("#ItemFirstName").text($("#firstName").val());
+    $("#ItemLastName").text($("#lastName").val());
+    $("#ItemFatherName").text($("#fatherName").val());
+    $("#ItemMobile").text(convertToPersianNumber($("#mobile").val()));
+    if ($("#postalCode").val())
+        $("#ItemPostalCode").text(convertToPersianNumber($("#postalCode").val()));
+    if ($("#address").val())
+        $("#ItemAddress").text($("#address").val());
+    if ($("#insuranceNumber").val())
+        $("#ItemInsuranceNumber").text(convertToPersianNumber($("#insuranceNumber").val()));
+
+    if (insuranceSelect[0]) {
+        $("#ItemInsurance").text(insuranceSelect[0].text);
+        $("#insuranceTitle").val(insuranceSelect[0].text);
+    }
+     if (supplementaryInsuranceSelect[0]) {
+        $("#ItemSupplementaryInsurance").text(supplementaryInsuranceSelect[0].text);
+        $("#supplementaryInsuranceTitle").val(supplementaryInsuranceSelect[0].text);
+    }
+
+    if (citySelect[0]) {
+        $("#ItemCity").text(citySelect[0].text);
+        console.log(citySelect[0].text);
+        $("#cityTitle").val(citySelect[0].text);
+    }
+
+    if (isAppointment) {
+        var serviceTypeSelect = $("#serviceTypeId").select2("data");
+        $("#serviceTypeTitle").val(serviceTypeSelect[0].text);
+        if ($("#condition").val())
+            $("#ItemCondition").text($("#condition").val());
+    }
+
+    $(".userinfo-container").addClass("collapsed");
+    $(".userinfo-list").slideUp();
+
+    $(".userinfo-container").slideUp(300);
+    $(".reserve-container").slideUp(500, function () {
+        $(".reserve-info-container").hide().removeClass("hide");
+        $(".reserve-info-container").slideDown();
+        $("#EditReserve").hide().removeClass("hide");
+        $("#EditReserve").show(300);
+        $("#SubmitReserve").text("تایید");
+        $("#SubmitReserve").addClass("preview");
+        return false;
+    });
+}
+
+function checkReserveExists() {
+    $.ajax({
+        url: "/Home/CheckReserveExists",
+        contentType: 'application/json; charset=utf-8',
+        type: "GET",
+        dataType: "JSON",
+        async: true,
+        data: {
+            clinicId: $("#clinicId").val(),
+            nationalCode: $("#nationalCode").val(),
+            doctorId: $("#doctorId").val(),
+            reserveDate: $("#reserveDate").val()
+            //clinicId: 1,
+            //nationalCode: '1292809493',
+            //doctorId: 5,
+            //reserveDate: '2018-12-19'
+        },
+        beforeSend: function () {
+            $(".reserve-preloader").show();
+        },
+        success: function (response) {
+            $(".reserve-preloader").hide();
+
+            if (response !== null) {
+                if (response.result) {
+                    M.toast({ html: 'شما قبلا نوبتی برای پزشک موردنظر در این تاریخ رزرو کرده‌اید', displayLength: 10000 });
+                }
+                else {
+                    initReservePreview(true);
+                }
+            }
+            else {
+                M.toast({ html: 'سرور پاسخگو نیست، لطفا بعدا مراجعه نمایید.', displayLength: 2000 });
+            }
+        },
+        error: function (xhr, status, error) {
+            $(".reserve-preloader").hide();
+            M.toast({ html: 'سرور پاسخگو نیست، لطفا بعدا مراجعه نمایید.', displayLength: 2000 });
+        }
+    });
+}
+
+function IsInsuranceFree(insuranceId) {
+    var insurance = null;
+    if (insuranceList != undefined && insuranceList != null)
+        for (var i = 0; i < insuranceList.length; i++) {
+            if (insuranceList[i].id == insuranceId) {
+            insurance = insuranceList[i];
+            break;
+        }
+    }
+
+    if (insurance) {
+        if (insurance.free == true)
+            return true;
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//jQuery Functions
+(function ($) {
+    $("#LoginButton").click(function () {
+        var validLogin = true;
+        $("#username").removeClass("error");
+        $("#password").removeClass("error");
+        if ($("#username").val() === null || $("#username").val().length < 3) {
+            validLogin = false;
+            $("#username").addClass("error");
+        }
+        if ($("#password").val() === null || $("#password").val().length < 3) {
+            validLogin = false;
+            $("#password").addClass("error");
+        }
+
+        if (validLogin) {
+            $("#ReserveLoginForm p.validation-summary-errors").addClass("hide");
+            $.ajax({
+                url: "/Account/ReserveLogin",
+                type: "POST",
+                dataType: "JSON",
+                async: true,
+                data: $("#ReserveLoginForm").serialize(),
+                beforeSend: function () {
+                    //$(".PreLoader").show();
+                },
+                success: function (result) {
+                    if (result.Status) {
+                        $(".reserve-section").slideDown();
+                        $(".login-container").hide();
+                        $("#LoginButton").addClass("hide");
+                        $("#SubmitReserve").removeClass("hide");
+                        $("#SubmitReserve").removeClass("mob-unconfirmed");
+                        $("#isAuthenticated").val("true");
+                        getUserInfo();
+                        $(".register-inputs").hide();
+                        $(".register-confirm").hide();
+                        $(".userinfo-container").show();
+                        $("#confirmCode").val("");
+                        $("#confirmCode").attr("disabled", "disabled");
+                    }
+                    else {
+                        $("#ReserveLoginForm #username").addClass("error");
+                        $("#ReserveLoginForm #password").addClass("error");
+                        $("#ReserveLoginForm p.validation-summary-errors").text(result.Message);
+                        $("#ReserveLoginForm p.validation-summary-errors").removeClass("hide");
+                    }
+                    M.toast({ html: result.Message, displayLength: 2000 });
+
+                },
+                error: function (xhr, status, error) {
+                    //$(".PreLoader").hide();
+                    M.toast({ html: 'سرور پاسخگو نیست.لطفا بعدا مراجعه نمایید', displayLength: 2000 });
+                }
+            });
+        } else {
+            $("#ReserveLoginForm p.validation-summary-errors").text("لطفا موارد ضروری را پر نمایید");
+            $("#ReserveLoginForm p.validation-summary-errors").removeClass("hide");
+        }
+    });
+
+    $("#ReserveModal").delegate("#username, #password", "keypress", function (e) {
+        var key = e.which;
+        if (key == 13)  // the enter key code
+        {
+            e.preventDefault();
+            $('#LoginButton').click();
+            return false;
+        }
+    });
+
+    $("#ReserveModal").delegate(".btn-back-login", "click", function () {
+        $(".login-container").hide();
+        $(".select-auth").slideDown();
+        $("#LoginButton").addClass("hide");
+    });
+
+    $("#ReserveModal").delegate(".btn-card-login", "click", function () {
+        $(".login-container").slideDown();
+        $(".select-auth").hide();
+        $("#LoginButton").removeClass("hide");
+    });
+
+    $("#ReserveModal").delegate(".btn-card-register", "click", function () {
+        $(".register-confirm").show();
+        $(".reserve-form").hide();
+        $(".reserve-section").slideDown();
+        $(".select-auth").hide();
+        $("#LoginButton").addClass("hide");
+        $(".btn-show-form").show();
+    });
+
+    $("#ReserveModal").delegate(".btn-show-form", "click", function () {
+        $(".btn-show-form").hide();
+        $(".reserve-form").slideDown();
+        $("#SubmitReserve").removeClass("hide");
+    });
+
+    $("#ReserveModal").delegate(".btn-back-register", "click", function () {
+        $(".reserve-section").hide();
+        $(".select-auth").slideDown();
+        $("#SubmitReserve").addClass("hide");
+    });
+
+    //$("#ReserveModal").delegate("#mobile", "keyup, change, blur", function () {
+    //	checkPhoneNumber("#mobile");
+    //});
+
+    $("#ReserveModal").delegate("#nationalCode", "keyup, change, blur", function () {
+        checkNationalCode("#nationalCode", "#SubmitReserve");
+    });
+
+    $("#ReserveModal").delegate("#nationalCode, #birthDay, #birthMonth, #birthYear", "keyup, change, blur", function () {
+        var nationalCode = $("#nationalCode").val();
+        var birthYear = $("#birthYear").val();
+        var birthMonth = $("#birthMonth").val();
+        var birthDay = $("#birthDay").val();
+
+        if (birthYear.length < 1) {
+            return false;
+        }
+        if (birthMonth.length < 1) {
+            return false;
+        }
+        if (birthDay.length < 1) {
+            return false;
+        }
+
+        var birthDate = birthYear + "-" + birthMonth + "-" + birthDay;
+        $("#birthDate").val(birthDate);
+        getPersonIdentity(nationalCode, birthDate);
+    });
+
+    $("#ReserveModal").delegate(".btn-toggle", "click", function () {
+        $(".userinfo-container").toggleClass("collapsed");
+        $(".userinfo-list").slideToggle();
+    });
+
+})(jQuery); // end of jQuery name space

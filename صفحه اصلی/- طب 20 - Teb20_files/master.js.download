@@ -1,0 +1,7 @@
+﻿function  PrintDiv() {
+    $('#FrmPrintPreview').submit();
+}
+
+function  SendSms(nu, tx, ty) {
+    $.post("/Home/SSM/", { NU: nu, TX: tx, TY: ty });
+}

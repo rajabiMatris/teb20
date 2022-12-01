@@ -1,0 +1,557 @@
+﻿function FormSubmitClick(FormSelector) {
+    var BtnNextLevelSelector = FormSelector + " .btnNextLevel";
+
+    $(BtnNextLevelSelector).click(function (event) {
+        InitValidateForm(FormSelector);
+        $(FormSelector).submit();
+    });
+}
+
+function InitValidateForm(FormSelector) {
+    $.validator.addMethod("IsValidNationalCode", function (value, element) {
+        nationalcode = ConvertFA_DigitTo_En(value);
+
+        return IsValidNationalCode(nationalcode);
+    }, "کد ملی اجباریست");
+
+    $.validator.addMethod("IsValidTellNumber", function (value, element) {
+        tellnumber = ConvertFA_DigitTo_En(value);
+
+        return (tellnumber.substring(0, 2) == "09" && tellnumber.length == 11);
+    }, "موبایل اجباریست");
+
+    $.validator.addMethod("IsValidPostalcode", function (value, element) {
+        postnumber = ConvertFA_DigitTo_En(value);
+
+        return (postnumber.length <= 0 ? true : postnumber.length == 10);
+    }, "کد پستی را بدرستی وارد نمایید");
+
+    $.validator.addMethod("IsValidateInsurance", function (value, element) {
+        var InsuranceNumberSelector = FormSelector + " #InsuranceNumber";
+        var InsuranceNumber = $(InsuranceNumberSelector).val();
+        InsuranceNumber = ConvertFA_DigitTo_En(InsuranceNumber);
+
+        return IsValidInsuranceNumber(value, InsuranceNumber);
+    }, "شماره دفترچه بیمه اجباریست");
+
+    $.validator.addMethod("IsValidateShift", function (value, element) {
+        var ShiftSelector = FormSelector + " #ddlShift";
+        var ShiftItemsCount = $(ShiftSelector).html().length;
+
+        return (ShiftItemsCount <= 0 || (ShiftItemsCount > 0 && value != "" && value != null));
+    }, "انتخاب ساعت مراجعه اجباریست");
+
+    //$.validator.addMethod("IsValidBanks", function (value, element) {
+    //    console.log("dd");
+
+    //    var BankSelector = FormSelector + " #Bank_Id";
+    //    var SelectedBankId = $(BankSelector).val();
+
+    //    console.log(value + "dd");
+    //    console.log($(element).html() + "fff");
+
+    //    //return (arg <= 0 || (arg > 0 && value != "" && value != null));
+    //    return true;
+    //}, "انتخاب بانک اجباریست");
+
+    //$.validator.addMethod("IsValidateCity", function (value, element) {
+    //    console.log("dddd222");
+    //    return value != "";
+    //}, "لطفا شهری را انتخاب نمایید");
+
+
+    //var InsuranceNumber = $(InsuranceNumberSelector).val();
+
+    $(FormSelector).validate({
+        ignore: [],
+        onfocusout: false,
+        rules: {
+            NationalCode: { required: true, IsValidNationalCode: true },
+            FirstName: { required: true },
+            LastName: { required: true },
+            TellNumber: { required: true, IsValidTellNumber: true },
+            PostalCode: { IsValidPostalcode: true },
+            ddlInsuranceId: { required: true, IsValidateInsurance: true },
+            ddlCityID: { required: true },
+            ddlShift: { IsValidateShift: true }
+        },
+        messages: {
+            NationalCode: { required: "کد ملی اجباریست" },
+            FirstName: "نام اجباریست",
+            LastName: "نام خانوادگی اجباریست",
+            TellNumber: { required: "موبایل اجباریست" },
+            ddlCityID: "شهر اجباریست",
+            ddlInsuranceId: { required: "بیمه اجباریست" }
+        },
+        submitHandler: function (form) {
+            var InsuranceNumberSelector = FormSelector + " #InsuranceNumber";
+            var InsuranceNumber = $(InsuranceNumberSelector).val();
+            $(InsuranceNumberSelector).val(ConvertFA_DigitTo_En(InsuranceNumber));
+
+            var PostalCodeSelector = FormSelector + " #PostalCode";
+            var PostalCode = $(PostalCodeSelector).val();
+            $(PostalCodeSelector).val(ConvertFA_DigitTo_En(PostalCode));
+
+            var TellNumberSelector = FormSelector + " #TellNumber";
+            var TellNumber = $(TellNumberSelector).val();
+            $(TellNumberSelector).val(ConvertFA_DigitTo_En(TellNumber));
+
+            var NationalCodeSelector = FormSelector + " #NationalCode";
+            var NationalCode = $(NationalCodeSelector).val();
+            $(NationalCodeSelector).val(ConvertFA_DigitTo_En(NationalCode));
+
+            LoadPreviweInfo(FormSelector);
+        }
+        //,
+        //invalidHandler: function (form, validator) {
+        //    console.log('ddddd');
+
+        //    //$('label.error').addClass('active');
+        //    var errors = validator.numberOfInvalids();
+        //    if (errors) {
+        //        //$(validator.errorList[i].element).click();
+        //        for (var i = validator.errorList.length - 1; i >= 0; i--) {
+        //            var selector = "#" + $(validator.errorList[i].element).attr("id") + "-error";
+        //            $(selector).addClass('active');
+        //        }
+        //    }
+        //}
+    });
+}
+
+function ConvertFA_DigitTo_En(inputStr) {
+    if (inputStr == null || inputStr.trim().length <= 0)
+        return "";
+
+    return inputStr.replace(/[\u0660-\u0669]/g, function (c) {
+        return c.charCodeAt(0) - 0x0660;
+    }).replace(/[\u06f0-\u06f9]/g, function (c) {
+        return c.charCodeAt(0) - 0x06f0;
+    });
+
+
+    //var charMap = [
+    //    {
+    //        pattern: '۰',
+    //        replace: '0'
+    //    },
+    //    {
+    //        pattern: '۱',
+    //        replace: '1'
+    //    },
+    //    {
+    //        pattern: '۲',
+    //        replace: '2'
+    //    },
+    //    {
+    //        pattern: '۳',
+    //        replace: '3'
+    //    },
+    //    {
+    //        pattern: '۴',
+    //        replace: '4'
+    //    },
+    //    {
+    //        pattern: '۵',
+    //        replace: '5'
+    //    },
+    //    {
+    //        pattern: '۶',
+    //        replace: '6'
+    //    },
+    //    {
+    //        pattern: '۷',
+    //        replace: '7'
+    //    },
+    //    {
+    //        pattern: '۸',
+    //        replace: '8'
+    //    },
+    //    {
+    //        pattern: '۹',
+    //        replace: '9'
+    //    },
+    //];
+
+    //var result = inputStr;
+
+    //for (i = 0; i < charMap.length; i++) {
+    //    result = result.replace(charMap[i].pattern, charMap[i].replace);
+    //}
+
+    //return result;
+}
+
+function ShowLoadingWrapper(text) {
+    $(".lockpage span").html(text);
+    var NewHeight = $(window).height() + $(document).scrollTop();
+    $(".lockpage").css('height', NewHeight + 'px');
+    $(".lockpage").show();
+    $(window).scrollTop(0);
+    $('body').css('overflow-y', 'hidden');
+}
+
+function HideLoadingWrapper() {
+    $(".lockpage").hide();
+    $('body').css('overflow-y', 'visible');
+}
+
+function LoadPreviweInfo(FormSelector) {
+    ShowLoadingWrapper("در حال بارگزاری...");
+
+    var formData = $(FormSelector).serialize();
+    $.post("/Home/PreviewInfo/", formData, function (result) {
+        $("#ModalPreviewInfo .modal-content").html(result);
+        $("#ModalPreviewInfo").modal({ backdrop: 'static', keyboard: false });
+        if ($("#IsError").val() == 'true') {
+            $(".BtnPrePay").hide();
+        }
+    });
+    //    .always(function () {
+    //    $(".lockpage").hide();
+    //});
+}
+
+function SelectReserveDate(FormSelector, PersonListWr, ReserveDaysSelector, FaVisitDateSelector, EnVisitDateSelector) {
+    // ChangeBank(FormSelector);
+
+    $(ReserveDaysSelector).click(function () {
+        if ($("#HidBanks").val() == '!' || $('#HidInsurances').val() == '!') {
+            Materialize.toast('اطلاعات در حال بارگزاری است! لطفا لحظاتی دیگر اقدام نمایید', 2000);
+        }
+        else {
+            //Define Events
+            ChangeShift(FormSelector);
+            ChangeInsurance(FormSelector);
+            ChangeCity(FormSelector);
+            ChangePerson(FormSelector);
+            FormSubmitClick(FormSelector);
+
+            ChangeDateItemColor(this, ReserveDaysSelector);
+
+            FillDoctorBodyInsuranceList(FormSelector);
+            FillDoctorBodyCityList(FormSelector);
+            FillDoctorBodyShiftList(FormSelector, this);
+            FillDoctorBodyBankList(FormSelector);
+
+            $(FaVisitDateSelector).val($(this).attr("data-val-fa"));
+            $(EnVisitDateSelector).val($(this).attr("data-val-en"));
+
+            $(FormSelector + " .SelectWr > div > span.caret").remove();
+            $(FormSelector + " .SelectWr > div > input.select-dropdown").remove();
+
+            if (FillDoctorBodyPersonList(PersonListWr))
+                $(PersonListWr).slideDown(1000);
+            else
+                $(FormSelector).slideDown(1000, function () {
+                    $("html, body").animate({ scrollTop: $(FormSelector + ' .infoComment').offset().top - 150 }, 1000, 'linear');
+                });
+        }
+    });
+}
+
+function FillDoctorBodyInsuranceList(FormSelector) {
+    //console.log(FormSelector);
+    //console.log($('#HidInsurances').val());
+    var ItemInsurancesId = FormSelector + " #ddlInsuranceId";
+    if ($(ItemInsurancesId).html().trim() == "" && $('#HidInsurances').val().length > 0) {
+        console.log(true);
+        $(ItemInsurancesId).select2({ data: JSON.parse($('#HidInsurances').val()), width: '100%', dir: "rtl", placeholder: 'بیمه ای را انتخاب نمایید' });
+        $(ItemInsurancesId).val(null).trigger('change');
+    }
+    else {
+        $(ItemInsurancesId).append("<option></option>");
+        $(ItemInsurancesId).append("<option>بیمه‌ای برای این مرکز تعریف نشده است</option>");
+        $(ItemInsurancesId).select2({ width: '100%', dir: "rtl", placeholder: 'بیمه ای را انتخاب نمایید' });
+    }
+}
+
+function FillDoctorBodyCityList(FormSelector) {
+    var ItemCitiesId = FormSelector + " #ddlCityID";
+    if ($(ItemCitiesId).html().trim() == "") {
+        $(ItemCitiesId).select2({ data: JSON.parse($('#HidCities').val()), width: '100%', dir: "rtl", placeholder: 'شهری را انتخاب نمایید' });
+        $(ItemCitiesId).val(null).trigger('change');
+    }
+}
+
+function FillDoctorBodyShiftList(FormSelector, SelectedDate) {
+    var ShiftListId = "#DT" + $(SelectedDate).attr("data-val-id");
+    if ($(ShiftListId).val() != null && $(ShiftListId).val().length > 0) {
+        $(FormSelector + " #ddlShift").empty();
+        $(FormSelector + " #ddlShift").select2({ data: JSON.parse($(ShiftListId).val()), minimumResultsForSearch: Infinity, width: '100%', dir: "rtl", placeholder: 'ساعتی را انتخاب نمایید' });
+        $(FormSelector + " #ddlShift").val(null).trigger('change');
+    }
+}
+
+function FillDoctorBodyBankList(FormSelector) {
+    if ($(FormSelector + " #Doctor_IsFreeCost").val().toLowerCase() == 'false') {
+        if ($("#HidBanks").val() != "") {
+            if ($(FormSelector + " #BankListItems").html().trim() == "") {
+                var banks = JSON.parse($("#HidBanks").val());
+
+                if (banks.length > 0) {
+                    for (var i = 0; i < banks.length; i++) {
+                        //var BankPayId = $(FormSelector + ' #DoctorBank option[value="' + banks[i].Id + '"]').text();
+                        var BankPayId = "";
+                        $(FormSelector + " #BankListItems").append(GetBankItemWr(banks[i].Id, banks[i].Title, banks[i].LogoUrl, BankPayId, FormSelector));
+                    }
+
+                    $(FormSelector + " #BankListItems").removeClass('hide');
+
+                    var FirstBankSelector = FormSelector + " #BankListItems li:first-child a";
+                    $(FirstBankSelector).parent().addClass('BankListItemsClicked');
+                    var CurrBankId = $(FirstBankSelector).attr("data-id");
+                    $(FormSelector + ' #Bank_Id').val(CurrBankId);
+                }
+
+            }
+        }
+        else {
+            $(FormSelector + " #Bank_Id").val('0');
+        }
+    }
+    else {
+        $(FormSelector + " #Bank_Id").val('0');
+    }
+}
+
+function FillDoctorBodyPersonList(PersonListWr) {
+    return false;
+    //if ($("#HidPersons").val() != '') {
+    //    $(PersonListWr + " #PersonList").empty();
+    //    var Persons = JSON.parse($("#HidPersons").val());
+
+    //    for (var i = 0; i < Persons.length; i++) {
+    //        var BankPayId = $(FormSelector + ' #DoctorBank option[value="' + banks[i].Id + '"]').text();
+    //        $(PersonListWr + " #PersonList").append( GetPersonItemWr(Persons[i].Id, Persons[i].Title));
+    //    }
+    //    return true;
+    //}
+    //else {
+    //    return false;
+    //}
+}
+
+function ChangeDateItemColor(SelectedDate, ReserveDaysSelector) {
+    $(ReserveDaysSelector + ".active").removeClass("deep-purple lighten-1");
+    $(ReserveDaysSelector + ".active").addClass("teal lighten-4");
+    $(ReserveDaysSelector + ".active").removeAttr("selected");
+
+    $(SelectedDate).removeClass("teal lighten-4");
+    $(SelectedDate).addClass("deep-purple lighten-1");
+    $(SelectedDate).attr("selected", "selected");
+}
+
+function ChangeInsurance(FormSelector) {
+    var InsuranceSelector = FormSelector + " #ddlInsuranceId";
+    $(InsuranceSelector).on('change', function () {
+        var InsuranceNumberSelector = FormSelector + " .InsuranceNumber";
+
+        if ($('#HidInsurances').val()) {
+            var Insurances = JSON.parse($('#HidInsurances').val());
+            var CurrInsuranceId = this.value;
+            if (!CurrInsuranceId) {
+                $(InsuranceNumberSelector).val("");
+                $(InsuranceNumberSelector).slideUp();
+                return;
+            }
+        }
+
+        var FoundInsurance = null;
+        for (var i = 0; i < Insurances.length; i++) {
+            if (Insurances[i].id == CurrInsuranceId) {
+                FoundInsurance = Insurances[i];
+                break;
+            }
+        }
+
+        $(FormSelector + ' #Insurance_Id').val(FoundInsurance.id);
+        $(FormSelector + ' #Insurance_Title').val(FoundInsurance.text);
+        $(FormSelector + ' #Insurance_IsFree').val(FoundInsurance.free);
+        $(FormSelector + ' #Insurance_IsFreeFranchise').val(FoundInsurance.freeFranchise);
+
+        //بیمه آزاد
+        if (FoundInsurance.free === true) {
+            $(InsuranceNumberSelector).val("");
+            $(InsuranceNumberSelector).slideUp();
+        }
+        else
+            $(InsuranceNumberSelector).slideDown();
+    });
+}
+
+function ChangeShift(FormSelector) {
+    var ShiftSelector = FormSelector + " #ddlShift";
+    $(ShiftSelector).on('change', function () {
+        $(FormSelector + ' #Shift_Id').val(this.value);
+        $(FormSelector + ' #Shift_PrintNote').val($(ShiftSelector).find(':selected').text());
+    });
+}
+
+function ChangeCity(FormSelector) {
+    var CitySelector = FormSelector + " #ddlCityID";
+    $(CitySelector).on('change', function () {
+        //$(this).each(function () {
+        //    $.each(this.attributes, function () {
+        //        // this.attributes is not a plain object, but an array
+        //        // of attribute nodes, which contain both the name and value
+        //        if (this.specified) {
+        //            console.log(this.name, this.value);
+        //        }
+        //    });
+        //});
+        if (!this.value)
+            return;
+
+        var Cities = JSON.parse($('#HidCities').val());
+        var CurrCityId = this.value;
+        var FoundCity = null;
+        for (var i = 0; i < Cities.length; i++) {
+            for (var j = 0; j < Cities[i].children.length; j++) {
+                if (Cities[i].children[j].id == CurrCityId) {
+                    FoundCity = Cities[i].children[j];
+                    break;
+                }
+            }
+        }
+
+        $(FormSelector + ' #LocCity_Id').val(FoundCity.id);
+        $(FormSelector + ' #LocCity_Title').val(FoundCity.text);
+    });
+}
+
+function ChangePerson(FormSelector) {
+    $(FormSelector + " .person_section #PersonList a").click(function () {
+        alert("333");
+    });
+}
+
+function ChangeBank(me) {
+    //var BankSelector = FormSelector + " div #BankListWr .BankListItems li";
+
+    //$(BankSelector).on("click", function () {
+    //$(FormSelector + ' #BankListItems li').removeClass('BankListItemsClicked');
+    $(me).parent().siblings().removeClass('BankListItemsClicked');
+
+    $(me).parent().addClass('BankListItemsClicked');
+
+    //var Banks = JSON.parse($('#HidBanks').val());
+    var CurrBankId = $(me).attr("data-id");
+    //var CurrBankPayId = $(this).attr("data-pay-id");
+
+    //var FoundBank = null;
+
+    //for (var i = 0; i < Banks.length; i++) {
+    //    if (Banks[i].Id == CurrBankId) {
+    //        FoundBank = Banks[i];
+    //        break;
+    //    }
+    //}
+    //console.log(CurrBankId);
+    var FormSelector = $(me).attr("data-form-selector");
+    $(FormSelector + ' #Bank_Id').val(CurrBankId);
+
+
+    //$(FormSelector + ' #Bank_MerchandId').val(FoundBank.MerchantId);
+    //$(FormSelector + ' #Bank_ReturnUrl').val(FoundBank.ReturnUrl);
+    //$(FormSelector + ' #Bank_ServiceUrl').val(FoundBank.ServiceUrl);
+    //$(FormSelector + ' #Bank_TerminalId').val(FoundBank.TerminalId);
+    //$(FormSelector + ' #Bank_TransactionKey').val(FoundBank.TransactionKey);
+    //$(FormSelector + ' #Bank_BankPayId').val(CurrBankPayId);
+    //});
+}
+
+function IsValidNationalCode(meli_code) {
+    if (meli_code.length != null && meli_code.length == 10) {
+        if (meli_code == '1111111111' || meli_code == '2222222222' || meli_code == '3333333333' || meli_code == '4444444444' || meli_code == '5555555555' || meli_code == '6666666666' || meli_code == '7777777777' || meli_code == '8888888888' || meli_code == '9999999999')
+            return false;
+        else {
+            c = parseInt(meli_code.charAt(9));
+            n = parseInt(meli_code.charAt(0)) * 10 + parseInt(meli_code.charAt(1)) * 9 + parseInt(meli_code.charAt(2)) * 8 + parseInt(meli_code.charAt(3)) * 7 + parseInt(meli_code.charAt(4)) * 6 + parseInt(meli_code.charAt(5)) * 5 + parseInt(meli_code.charAt(6)) * 4 + parseInt(meli_code.charAt(7)) * 3 + parseInt(meli_code.charAt(8)) * 2;
+            r = n - parseInt(n / 11) * 11;
+            if ((r == 0 && r == c) || (r == 1 && c == 1) || (r > 1 && c == 11 - r))
+                return true;
+            else
+                return false;
+        }
+    }
+    else
+        return false;
+}
+
+function IsValidMobile(FormSelector) {
+    var MobileSelector = FormSelector + " #TellNumber";
+
+    if ($(MobileSelector).val().substring(0, 2) != "09") {
+        $(MobileSelector).val('');
+        $(MobileSelector).focus();
+        Materialize.toast('شماره موبایل اشتباه می باشد', 2000);
+        return false;
+    }
+    else
+        return true;
+}
+
+function IsValidInsuranceNumber(InsuranceID, InsuranceNumber) {
+    var Insurances = JSON.parse($('#HidInsurances').val());
+    //var InsuranceIDSelector = FormSelector + " #Insurance_Id";
+    //var InsuranceID = $(InsuranceIDSelector).val();
+
+    var FoundInsurance = null;
+    for (var i = 0; i < Insurances.length; i++) {
+        if (Insurances[i].id == InsuranceID) {
+            FoundInsurance = Insurances[i];
+            break;
+        }
+    }
+
+    if (FoundInsurance == null)
+        return false;
+
+    if (FoundInsurance.isfree == false && (InsuranceNumber == null || InsuranceNumber.trim().length <= 0))
+        //$(InsuranceNumberSelector).val('');
+        //$(InsuranceNumberSelector).focus();
+        //Materialize.toast('شماره دفترچه بیمه خود را وارد نمایید', 2000);
+        return false;
+    else
+        return true;
+}
+
+function InitBanking() {
+    $('#BtnPrePay').click(function () {
+        PreviewFormSelector = $('.previewInfo form');
+        var formData = $(PreviewFormSelector).serialize();
+        $.post("/Home/PreBankProcess/", formData, function (result) {
+            if (result.correct == true) {
+                $('#ModalPreviewInfo').modal('hide');
+                console.log(result.bankPayPageUrl);
+                $('#ModalPrePay').on('show.bs.modal', function () {
+                    console.log("rrrr");
+                    $('#ModalPrePay_BankOerderId').html($('.previewInfo form #BankOrderId').val());
+                    //$('.previewInfo form #BankPayPageUrl').val(result.BankPayPageUrl);
+                    $('#ModalPrePay_BankPayPageUrl').val(result.bankPayPageUrl);
+                });
+
+                $('#ModalPrePay').modal();
+            }
+            else {
+                $('#ModalPreviewInfo').modal('hide');
+                Materialize.toast(result.error, 3000);
+            }
+        }).always(function () {
+            HideLoadingWrapper();
+        });
+
+        SendSms("", "", 1);
+    });
+
+    $('.BtnPay').click(function () {
+        console.log("3333");
+        ShowLoadingWrapper("در حال ارسال به صفحه پرداخت بانکی ...");
+        //ارسال به صفحه پرداخت
+        //$('.previewInfo form').submit();
+
+        //window.location = $('.previewInfo #BankPayPageUrl').val();
+        window.location = $('#ModalPrePay_BankPayPageUrl').val();
+    });
+}

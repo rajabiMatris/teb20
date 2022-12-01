@@ -1,0 +1,131 @@
+﻿function  ExpnadFilterBtnClick() {
+    $(".btnExpandFilter").click(function () {
+        if ($(".filter_expand-btn").html() == "expand_less")
+            FilterCollapse();
+        else
+            FilterExpand();
+    });
+}
+
+function  ExpnadFooterBtnClick() {
+    $(".btnExpandFooter").click(function () {
+        if ($(".expand-btn").html() == "expand_less")
+            FooterExpand();
+        else
+            FooterCollapse();
+    });
+}
+
+function FooterExpand() {
+    $(".expand-btn").html("expand_more");
+    $(".linksWr").show();
+    var FooterLinksHeight = $(".linksWr").outerHeight();
+    var FooterContactsHeight = $(".contactsWr").outerHeight();
+    //$("footer").height(FooterLinksHeight);
+     //ScrollFooter(FooterLinksHeight, FooterContactsHeight);
+}
+
+function FooterCollapse() {
+    $(".expand-btn").html("expand_less");
+    $(".linksWr").hide();
+    var FooterLinksHeight = $(".linksWr").outerHeight();
+    var FooterContactsHeight = $(".contactsWr").outerHeight();
+    //$("footer").height(FooterContactsHeight);
+     //ScrollFooter(FooterLinksHeight, FooterContactsHeight);
+}
+
+function  ScrollFooter(FooterLinksHeight, FooterContactsHeight) {
+    //var ScroolTop = $(window).scrollTop();
+    //var ScroolHeight = $(window).height();
+    //var NewTop = 20;
+
+    //if ($(".expand-btn").html() == "expand_less")
+    //    NewTop = ScroolTop + ScroolHeight - FooterContactsHeight - 23;
+    //else
+    //    NewTop = ScroolTop + ScroolHeight - FooterContactsHeight - FooterLinksHeight - 23;
+
+    //$("footer").css("top", NewTop + "px");
+}
+
+function FilterExpand() {
+    $(".filter_expand-btn").html("expand_less");
+    $(".FilterResultDisplay").show();
+    $(".filter-items").slideDown('slow', function () {
+         SetMainTop();
+    });
+}
+
+function FilterCollapse() {
+    $(".filter_expand-btn").html("expand_more");
+    $(".FilterResultDisplay").hide();
+    $(".filter-items").slideUp('slow', function () {
+         SetMainTop();
+    });
+}
+
+function  SetMainTop() {
+    var IsTeb20 = true;
+    var IsOneDoctor = false;
+    if ($('.LogoBand').length > 0)
+        IsTeb20 = false;
+    //if ($('.FilterBand').css('display') && $('.FilterBand').css('display') == 'none')
+    //    IsOneDoctor = true;
+
+    var FilterBandH = 20; // $('.FilterBand').height();
+
+    //حذف می شود FilterBand اگر فقط یک دکتر از برنامه استفاده میکند نوار
+    //if (IsOneDoctor)
+    //    FilterBandH = 0;
+    //else if (screen.width <= 600)
+    //    FilterBandH = FilterBandH + 40;
+
+    var LogoBandH = $('.LogoBand').height();
+
+    //وجود ندارد LogoBand نوار teb20 در
+    if (IsTeb20 == true)
+        LogoBandH = 0;
+    //else
+    //    $('.FilterBand').css('top', '64px');
+    
+    var MainTop = FilterBandH + LogoBandH + 10;
+
+    //$("main").css('margin-top', MainTop + 'px');
+}
+
+function  AutoReHeightClinicAttentionsWr() {
+    var AttTotalHeight = 0;
+
+    $(".attentions_wr div").children().each(function () {
+        AttTotalHeight = AttTotalHeight + $(this).outerHeight(true);
+    });
+
+    listH = $("#VisitList").outerHeight();
+
+    if ($(window).width() > 600 && listH > AttTotalHeight)
+        $('.attentions_wr').height(listH);
+}
+
+function  InitSideMenu() {
+    //$("#btnMenu").sideNav({
+    //    edge: 'right',
+    //    onOpen: function (el) {
+    //         OnOpenNavBar();
+    //    },
+    //    onClose: function (el) {
+    //         OnCloseNavBar();
+    //    }
+    //});
+}
+
+function  OnOpenNavBar() {
+    w1 = $('.side-nav').width();
+    m = 20;
+    w2 = w1 - m;
+    $(".btnMenuWr").animate({ 'margin-right': w1 + "px" }, 1000);
+    $("#VisitList").animate({ 'margin-right': w2 + "px" }, 1000);
+}
+
+function  OnCloseNavBar() {
+    $(".btnMenuWr").animate({ 'margin-right': "0px" }, 1000);
+    $("#VisitList").animate({ 'margin-right': "0px" }, 1000);
+}

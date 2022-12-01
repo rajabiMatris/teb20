@@ -1,0 +1,9 @@
+﻿$("#SubmitReserve").click(function () {
+    $("#ReserveForm").submit();
+});
+
+
+$(function () {
+    toggleMenu();
+    $("body").addClass("loaded");
+});

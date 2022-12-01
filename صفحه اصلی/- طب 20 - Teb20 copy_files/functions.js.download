@@ -1,0 +1,229 @@
+﻿var persianNumbers = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+
+var
+    persianNums = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g],
+    arabicNumbers = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g],
+    fixNumbers = function (str) {
+        if (typeof str === 'string') {
+            for (var i = 0; i < 10; i++) {
+                str = str.replace(persianNums[i], i).replace(arabicNumbers[i], i);
+            }
+        }
+        return str;
+    };
+
+$("input.number").on("keyup", function () {
+    var str = $(this).val();
+    var number = fixNumbers(str);
+    $(this).val(number);
+});
+
+function convertToPersianNumber(input) {
+    input = input.trim();
+    var output = "";
+    for (var i = 0; i < input.length; i++) {
+        if (isNaN(input.charAt(i))) {
+            output += input.charAt(i);
+        }
+        else {
+            var j = parseInt(input.charAt(i));
+            var num = persianNumbers[j];
+            output += num;
+        }
+    }
+    return output;
+}
+
+function getLongDate(strDate) {
+    var dateArr = strDate.split("/");
+    var year = parseInt(dateArr[0]);
+    var month = parseInt(dateArr[1]);
+    var day = parseInt(dateArr[2]);
+
+    var date = new persianDate([year, month, day]).format("DD MMMM YYYY");
+    return date;
+
+}
+
+function ValidateNationalCode(input, element) {
+    if (!/^\d{10}$/.test(input)
+        || input == '0000000000'
+        || input == '1111111111'
+        || input == '2222222222'
+        || input == '3333333333'
+        || input == '4444444444'
+        || input == '5555555555'
+        || input == '6666666666'
+        || input == '7777777777'
+        || input == '8888888888'
+        || input == '9999999999')
+        return false;
+    var check = parseInt(input[9]);
+    var sum = 0;
+    var i;
+    for (i = 0; i < 9; ++i) {
+        sum += parseInt(input[i]) * (10 - i);
+    }
+    sum %= 11;
+    return (sum < 2 && check == sum) || (sum >= 2 && check + sum == 11);
+}
+
+function digitGrouper(num) {
+    var str = num.toString().split('.');
+    if (str[0].length >= 5) {
+        str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+    }
+    if (str[1] && str[1].length >= 5) {
+        str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+    }
+    return str.join('.');
+}
+
+function toggleMenu() {
+    var menuStat = readCookie("menuStatus");
+    if (menuStat !== null) {
+        if (menuStat === "Hide") {
+            $("#ActionBar").hide();//.css("display", "none !important");
+            $("footer").hide();
+            $("body").addClass("menu-hidden");
+        }
+    }
+}
+
+function getCityId() {
+    var cityId = readCookie("CityId");
+    if (cityId !== null) {
+        return cityId;
+    }
+    else return 0;
+}
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1, c.length);
+        }
+        if (c.indexOf(nameEQ) === 0) {
+            return c.substring(nameEQ.length, c.length);
+        }
+    }
+    return null;
+}
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    var mInterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+            display.style.display = "none";
+            clearInterval(mInterval);
+        }
+    }, 1000);
+}
+
+(function ($) {
+
+    var Defaults = $.fn.select2.amd.require('select2/defaults');
+
+    $.extend(Defaults.defaults, {
+        searchInputPlaceholder: ''
+    });
+
+    var SearchDropdown = $.fn.select2.amd.require('select2/dropdown/search');
+
+    var _renderSearchDropdown = SearchDropdown.prototype.render;
+
+    SearchDropdown.prototype.render = function (decorated) {
+
+        // invoke parent method
+        var $rendered = _renderSearchDropdown.apply(this, Array.prototype.slice.apply(arguments));
+
+        this.$search.attr('placeholder', this.options.get('searchInputPlaceholder'));
+
+        return $rendered;
+    };
+
+})(window.jQuery);
+
+function toggleLoading(show) {
+    if (show)
+        $("#overlay").addClass("loading");
+    else
+        $("#overlay").removeClass("loading");
+}
+
+function GetDateTimeString(date) {
+    var year = date.getFullYear();
+    var month = '' + (date.getMonth() + 1);
+    var day = '' + date.getDate();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes + ':' + date.getSeconds();
+    var strDate = [year, month, day].join('-') + " " + strTime;
+    return strDate;
+}
+
+function convertToPersianDateTime(date) {
+    if (date) {
+        //console.log(date);
+        var d = new Date(date.trim());
+        var strDate = GetDateTimeString(d);
+        //console.log(strDate);
+
+        //var day = new Date(2011, 9, 16);
+        //var dayWrapper = new persianDate(day);
+        var persianDate = moment(strDate, 'YYYY-M-D HH:mm:ss')
+            .locale('fa').format('YYYY/M/D HH:mm:ss'); // 1392/6/31 23:59:59
+        //return  moment().locale('fa').format('YYYY/M/D');
+        //console.log(persianDate);
+        return persianDate;
+    }
+}
+
+function ConvertDateTimes() {
+    $('.datetime').each(function (i, item) {
+        var day = convertToPersianDateTime($(item).attr("data-date").trim());
+        $(item).html(day);
+    });
+}
+
+function ConvertDates(id) {
+    $(id + ' .date').each(function (i, item) {
+        var day = convertToPersianDate($(item).text().trim());
+        $(item).text(day);
+    });
+}
+
+function ToastMessage(message, length) {
+    M.toast({ html: message, displayLength: length });
+}
+
+function UrlExists(url) {
+    $.ajax({
+        url: url,
+        type: 'HEAD',
+        error: function () {
+            //file not exists
+            return false;
+        },
+        success: function () {
+            //file exists
+            return true;
+        }
+    });
+}

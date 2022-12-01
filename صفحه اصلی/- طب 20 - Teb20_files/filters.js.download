@@ -1,0 +1,293 @@
+﻿window.IsSingleClinic = false;
+
+function InitItems(ChosenClinicId, ChosenDoctorId) {
+	//console.log(ChosenClinicId);
+
+ 	InitFilterItems_Clear();
+	ClinicFilterItems_Clear();
+	SpecialtyFilterItems_Clear();
+
+	var CountryId = 1 // ایران
+	GetCities(CountryId, ChosenClinicId);
+	//console.log(ChosenClinicId);
+	GetBanks();
+
+	if (ChosenClinicId > 0) {
+		$(".city-select").hide();
+		$(".clinic-select").hide();
+		$("#FilterClinic").val(ChosenClinicId);
+		$("#ClinicIdFilter").val(ChosenClinicId);
+		$(".doctor-input").removeClass("m10").addClass("m6");
+		window.IsSingleClinic = true;
+	}
+
+	if (ChosenDoctorId > 0 && ChosenClinicId > 0) {
+		//$(".FilterBand").hide();
+		$(".btnShowMoreListWr").hide();
+		//$("main").css("margin-top", "70px");
+
+		DoSearch(ChosenDoctorId, ChosenClinicId);
+	}
+	else if (ChosenDoctorId <= 0 && ChosenClinicId > 0)
+		GetSpecialties(ChosenClinicId);
+
+	InitFilterEvents(ChosenClinicId);
+}
+
+function InitFilterEvents(ChosenClinicId) {
+	$("#FilterCity").change(function () {
+		var CityId = $(this).val();
+		GetClinics(CityId);
+	});
+	//---------------------------
+	$("#FilterClinic").change(function () {
+		var ClinicId = $(this).val();
+		GetSpecialties(ClinicId);
+	});
+	//---------------------------
+	$(".btnFilterBig").click(function () {
+		DoSearch(0, ChosenClinicId);
+	});
+
+	$(".btnFilterSmall").click(function () {
+		FilterCollapse();
+		DoSearch(0, ChosenClinicId);
+	});
+	//---------------------------
+	$("#ShowMoreList").click(function () {
+		ShowDrList(0, ChosenClinicId);
+	});
+}
+
+function DoSearch(DoctorId, ClinicId) {
+	BeforeSearchClear();
+
+	var CityId = $('#FilterCity').val() == null ? 0 : $('#FilterCity').val();
+
+	if (!window.IsSingleClinic) {
+		if (!CityId) {
+			Materialize.toast('لطفا شهری را انتخاب نمایید', 2000);
+			return;
+		}
+	}
+
+	if (ClinicId <= 0)
+		ClinicId = $('#FilterClinic').val();
+
+	if (!ClinicId) {
+		Materialize.toast('لطفا پایگاهی را انتخاب نمایید', 2000);
+		return;
+	}
+	var DocId = 0;
+	console.log("Doctor: detail")
+
+	GetClinicInsurances(ClinicId, DocId);
+	ShowDrList(DoctorId, ClinicId);
+
+
+}
+
+function ShowDrList(ChosenDoctorId, ClinicId) {
+	var CityId = 0;
+	var SpecialtyId = 0;
+	var DrName = "";
+	var LastDrId = 0;
+
+
+	if (ChosenDoctorId <= 0) {
+		if ($('#FilterCity').val())
+			CityId = $('#FilterCity').val() == null ? 0 : $('#FilterCity').val();
+		SpecialtyId = $("#FilterSpecialty").val();
+		DrName = $(".filter-doctor-input").val();
+		LastDrId = $("#HidFilterLastDrID").val();
+		//if (CityId == null) {
+		//    Materialize.toast('سرور پاسخگو نیست.لطفا بعدا مراجعه نمایید', 2000);
+		//    return
+		//}
+		//else if (ClinicId == null) {
+		//    Materialize.toast('سرور پاسخگو نیست.لطفا بعدا مراجعه نمایید', 2000);
+		//    return
+		//}
+		//else if (SpecialtyId == null) {
+		//    Materialize.toast('موردی جهت رزرو وجود ندارد.لطفا بعدا مراجعه نمایید', 2000);
+		//    return
+		//}
+	}
+
+	if (!window.IsSingleClinic) {
+		if (!CityId) {
+			Materialize.toast('لطفا شهری را انتخاب نمایید', 2000);
+			return;
+		}
+	}
+	if (!ClinicId) {
+		Materialize.toast('لطفا پایگاهی را انتخاب نمایید', 2000);
+		return;
+	}
+	if (!SpecialtyId) {
+		SpecialtyId = 0;
+		//Materialize.toast('لطفا تخصصی جهت جستجو انتخاب نمایید', 2000);
+		//return;
+	}
+
+	$("#ClinicBox").load("/Home/ClinicPartial/" + ClinicId);
+
+	$(".PreLoader").show();
+
+	//console.log(CityId);
+	//console.log(ClinicId);
+	//console.log(SpecialtyId);
+	//console.log(DrName);
+	//console.log(LastDrId);
+	//console.log(ChosenDoctorId);
+
+	$(".service-list").load("/Home/ServicesPartial", {
+		ClinicId: ClinicId
+	}, function () {
+		$('#VisitList').load("/Home/GetDoctors/", {
+			CityId: CityId,
+			ClinicId: ClinicId,
+			SpecialtyId: SpecialtyId,
+			DrName: DrName,
+			LastDrId: LastDrId,
+			DoctorId: ChosenDoctorId
+		}, function () {
+			$("#MainLogo").slideUp();
+			$(".announcement").slideUp();
+			$(".PreLoader").fadeOut(200);
+			$(".collapsible-header").attrchange({
+				trackValues: true,
+				callback: function (event) {
+					if (event.attributeName.toLowerCase() == "style" && event.newValue.toLowerCase().replace(" ", "").includes('display:none')) {
+						$(".collapsible-header").css("display", "block");
+					}
+				}
+			});
+			//show item header with effect
+			$(".collapsible-header").fadeOut("100", function () {
+				$(this).removeClass("blue lighten-4");
+			});
+			$(".home-tabs").show();
+		});
+	});
+
+
+
+
+	//$.ajax({
+	//    url: "/Home/GetDrList",
+	//    contentType: 'application/json; charset=utf-8',
+	//    type: "POST",
+	//    dataType: "JSON",
+	//    async: true,
+	//    data: JSON.stringify({
+	//        CityId: CityId,
+	//        ClinicId: ClinicId,
+	//        SpecialtyId: SpecialtyId,
+	//        DrName: DrName,
+	//        LastDrId: LastDrId,
+	//        DoctorId: ChosenDoctorId
+	//    }),
+	//    beforeSend: function () {
+	//        $(".PreLoader").show();
+	//        $("#ShowMoreList").hide();
+	//    },
+	//    success: function (result) {
+	//        $(".PreLoader").hide();
+
+	//        if (result.correct == false) {
+	//            Materialize.toast('سرور پاسخگو نیست.لطفا بعدا مراجعه نمایید', 2000);
+	//        }
+	//        else {
+	//            if (result.list == "" || $(result.list).length <= 0) {
+	//                //$("#ShowMoreList").hide();
+	//                if (LastDrId <= 0)
+	//                    Materialize.toast('رزروی برای هیچ دکتری تعریف نشده است', 5000);
+	//                else
+	//                    Materialize.toast('به پایان لیست رسیدید', 5000);
+	//            }
+	//            else {
+	//                $("#ShowMoreList").hide();
+
+	//                $("#HidFilterLastDrID").val(result.list[$(result.list).length - 1].Id);
+	//                var ListFoundCount = parseInt($("#HidFilterFoundRows").val()) + $(result.list).length;
+	//                $("#HidFilterFoundRows").val(ListFoundCount)
+	//                $(".DoctorListFoundCount").html(ListFoundCount);
+
+	//                $(".FilterComment").hide();
+
+	//                for (i = 0; i < $(result.list).length; i++) {
+
+	//                    for (j = 0; j < result.list[i].ReserveDates.length; j++) {
+	//                        result.list[i].ReserveDates[j].EnDate = ToJavaScriptDate(result.list[i].ReserveDates[j].EnDate);
+	//                    }
+
+	//                    var DrId = result.list[i].Id;
+
+	//                    var ListItemHtml =  GetListItemWrraper(DrId);
+	//                    $('#VisitList').append(ListItemHtml);
+
+	//                    //var SendData = {
+	//                    //    'CityId': CityId, 'ClinicId': ClinicId, 'DrId': DrId, 'SpecialtyId': SpecialtyId,
+	//                    //    'CityName': CityName, 'ClinicName': ClinicName, 'DrFName': result.list[i].FirstName, 'DrLName': result.list[i].LastName, 'SpecialtyName': SpecialtyName
+	//                    //};
+
+	//                    //load Item Header
+	//                    var ItemHeaderTag = "#ListItem" + DrId + " .collapsible-header";
+
+	//                    $(".collapsible-header").attrchange({
+	//                        trackValues: true,
+	//                        callback: function (event) {
+	//                            if (event.attributeName.toLowerCase() == "style" && event.newValue.toLowerCase().replace(" ", "").includes('display:none')) {
+	//                                $(".collapsible-header").css("display", "block");
+	//                            }
+	//                        }
+	//                    });
+
+	//                    $(ItemHeaderTag).load("/Home/DoctorInfoHeader/", { 'StrDoctorInfo': JSON.stringify(result.list[i]) });
+
+
+
+	//                    console.log(result.list[i]);
+	//                    console.log(JSON.stringify(result.list[i]));
+
+	//                    //load Item Body
+	//                    var ItemBodyTag = "#ListItem" + DrId + " .collapsible-body";
+	//                    $(ItemBodyTag).load("/Home/DoctorInfoBody/", { 'StrDoctorInfo': JSON.stringify(result.list[i]) });
+
+	//                    //show item header with effect
+	//                    $(ItemHeaderTag).fadeOut("slow", function () {
+	//                        $(this).removeClass("blue lighten-4");
+	//                    });
+
+	//                    //scroll to end item in list
+	//                    if (DrId == $("#HidFilterLastDrID").val()) {
+	//                        var scrolltop = $(".scroll-this").offset().top;
+	//                        if (scrolltop > 600)
+	//                            scrolltop = scrolltop - 140;
+	//                        else
+	//                            scrolltop = scrolltop - 240;
+
+	//                        window.scroll({
+	//                            top: scrolltop,
+	//                            left: 0,
+	//                            behavior: 'smooth'
+	//                        });
+	//                    }
+	//                }
+	//            }
+	//        }
+	//    },
+	//    error: function (xhr, status, error) {
+	//        $(".PreLoader").hide();
+	//        Materialize.toast('سرور پاسخگو نیست.لطفا بعدا مراجعه نمایید', 2000);
+	//    }
+	//});
+}
+
+function ToJavaScriptDate(value) {
+	var pattern = /Date\(([^)]+)\)/;
+	var results = pattern.exec(value);
+	var dt = new Date(parseFloat(results[1]));
+	return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+}

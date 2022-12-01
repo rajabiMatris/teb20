@@ -1,0 +1,1152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0025)https://health.teb20.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> -       طب 20 - Teb20</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link href="./- طب 20 - Teb20_files/materialize-rtl.min.css" rel="stylesheet">
+    
+    <link href="./- طب 20 - Teb20_files/jquery.mpdatepicker.css" rel="stylesheet">
+    <link href="./- طب 20 - Teb20_files/flickity.min.css" rel="stylesheet">
+    <link href="./- طب 20 - Teb20_files/select2.min.css" rel="stylesheet">
+
+    <link href="./- طب 20 - Teb20_files/modern.css" rel="stylesheet">
+
+    <link href="./- طب 20 - Teb20_files/myhealth.css" rel="stylesheet">
+
+    <link href="./- طب 20 - Teb20_files/starrr.css" rel="stylesheet">
+    <link href="./- طب 20 - Teb20_files/utils.css" rel="stylesheet">
+    <script>
+        function imgError(elem) {
+            var gender = elem.getAttribute('data-gender');
+            if (gender) {
+                elem.setAttribute('src', '/Content/images/male-doctor.png');
+            }
+            else {
+                elem.setAttribute('src', '/Content/images/female-doctor.png');
+            }
+        }
+    </script>
+</head>
+<body class="rtl loaded">
+    <!-- Start Page Loading -->
+    <div id="loader-wrapper" class="ltr" dir="ltr">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+
+
+    <div class="container-fluid">
+        <header class="page-header">
+                <nav id="ActionBar" class="cyan LogoBand">
+                    <div class="nav-wrapper">
+                        
+                        <ul>
+                            <li class="right home-nav"><a href="https://health.teb20.com/"><i class="material-icons">home</i></a></li>
+                            <li class="right top-nav-item"><a href="https://health.teb20.com/Clinic">مراکز درمانی</a></li>
+                            <li class="right"><a href="https://health.teb20.com/Doctor">پزشکان</a></li>
+                            
+                            
+                            
+                                <li class="left">
+<form action="https://health.teb20.com/Account/LogOut" class="navbar-left" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="nzAGMISBh5pMMf6VVflH2vSLyiolw0c4Cu2O9unZnLTJz5farjnpodmzCvzeo91pDm0uVSuMJ1PmnHSq-WcPUJIo_dv8BSP9xnEDEGgrPEI1">                                        <a class="logout-nav" href="javascript:document.getElementById(&#39;logoutForm&#39;).submit()">
+                                            خروج
+                                        </a>
+</form>                                </li>
+                                <li class="left"><a href="https://health.teb20.com/Account?statusId=-1" title="پروفایل من"><i class="material-icons">person_outline</i></a></li>
+
+                            
+                        </ul>
+                    </div>
+                </nav>
+        </header>
+
+        <main>
+            
+
+
+    <div class="announcement cyan lighten-1 white-text">
+        <div class="row center">
+            <p>برای دفترچه های روستایی۔ همگانی۔ سایراقشار ارجاعی۱ ، ارائه کد ارجاع از طرف پزشک خانواده ضروری می باشد .</p>
+        </div>
+    </div>
+
+<div class="container" id="MainLogo">
+    <div class="row center">
+            <img class="site-logo" src="./- طب 20 - Teb20_files/Teb20-Logo.png" alt="سامانه خدمات درمانی">
+            <h1 class="logo-title center cyan-text text-darken-2">      طب 20</h1>
+    </div>
+</div>
+
+<div class="row cyan darken-1">
+    <div class="container">
+        <div class="row">
+            <div class="col m12 s12 filter-items">
+                <div class="col m2 s12 filter-select right city-select">
+                    <select id="FilterCity" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true"><option></option><optgroup label="آذربایجان شرقی"><option value="1">تبريز</option><option value="2">عجب شير</option><option value="3">آذر شهر</option><option value="4">بناب</option><option value="5">بستان آباد</option><option value="6">چاراویماق</option><option value="7">هشترود</option><option value="8">هريس</option><option value="9">جلفا</option><option value="10">كليبر</option><option value="11">خداآفرین</option><option value="12">ملكان</option><option value="13">مراغه</option><option value="14">ميانه</option><option value="15">مرند</option><option value="16">اسكو</option><option value="17">سراب</option><option value="18">شبستر</option><option value="19">اهر</option><option value="20">ورزقان</option></optgroup><optgroup label="آذربایجان غربی"><option value="21">اروميه</option><option value="22">نقده</option><option value="23">ماكو</option><option value="24">تكاب</option><option value="25">خوي</option><option value="26">مهاباد</option><option value="27">سر دشت</option><option value="28">چالدران</option><option value="29">بوكان</option><option value="30">مياندوآب</option><option value="31">سلماس</option><option value="32">شاهين دژ</option><option value="33">پيرانشهر</option><option value="34">اشنويه</option><option value="35">چایپاره</option><option value="36">پلدشت</option><option value="37">شوط</option></optgroup><optgroup label="اردبیل"><option value="38">اردبيل</option><option value="39">سرعين</option><option value="40">بيله سوار</option><option value="41">پارس آباد</option><option value="42">خلخال</option><option value="43">مشگين شهر</option><option value="44">نمين</option><option value="45">نير</option><option value="46">كوثر</option><option value="47">گرمي</option></optgroup><optgroup label="اصفهان"><option value="48">بوئین و میاندشت</option><option value="49">مباركه</option><option value="50">اردستان</option><option value="51">خور و بیابانک</option><option value="52">فلاورجان</option><option value="53">فريدون شهر</option><option value="54">كاشان</option><option value="55">لنجان</option><option value="56">گلپايگان</option><option value="57">فريدن</option><option value="58">نايين</option><option value="59">اصفهان</option><option value="60">نجف آباد</option><option value="61">آران و بيدگل</option><option value="62">چادگان</option><option value="63">تیران و کرون</option><option value="64">شهرضا</option><option value="65">سميرم</option><option value="66">خميني شهر</option><option value="67">دهاقان</option><option value="68">نطنز</option><option value="69">برخوار</option><option value="70">شاهین شهر و میمه</option><option value="71">خوانسار</option></optgroup><optgroup label="ایلام"><option value="72">ايلام</option><option value="73">مهران</option><option value="74">دهلران</option><option value="75">آبدانان</option><option value="76">چرداول</option><option value="77">دره شهر</option><option value="78">ايوان</option><option value="79">بدره</option><option value="80">سیروان</option><option value="81">ملکشاهی</option></optgroup><optgroup label="بوشهر"><option value="82">عسلویه</option><option value="83">گناوه</option><option value="84">دشتي</option><option value="85">دشتستان</option><option value="86">دير</option><option value="87">بوشهر</option><option value="88">كنگان</option><option value="89">تنگستان</option><option value="90">ديلم</option><option value="91">جم</option></optgroup><optgroup label="تهران"><option value="92">قرچك</option><option value="93">پردیس</option><option value="94">بهارستان</option><option value="95">شمیرانات</option><option value="96">رباط كريم</option><option value="97">فيروزكوه</option><option value="98">تهران</option><option value="99">ورامين</option><option value="100">اسلامشهر</option><option value="101">ري</option><option value="102">پاكدشت</option><option value="103">پیشوا</option><option value="104">قدس</option><option value="105">ملارد</option><option value="106">شهريار</option><option value="107">دماوند</option></optgroup><optgroup label="چهارمحال و بختیاری"><option value="108">بن</option><option value="109">سامان</option><option value="110">کیار</option><option value="111">بروجن</option><option value="112">اردل</option><option value="113">شهركرد</option><option value="114">فارسان</option><option value="115">کوهرنگ</option><option value="116">لردگان</option></optgroup><optgroup label="خراسان رضوی"><option value="117">داورزن</option><option value="118">كلات</option><option value="119">بردسكن</option><option value="120">مشهد</option><option value="121">نيشابور</option><option value="122">سبزوار</option><option value="123">كاشمر</option><option value="124">گناباد</option><option value="125">تربت حيدريه</option><option value="126">خواف</option><option value="127">تربت جام</option><option value="128">تايباد</option><option value="129">مه ولات</option><option value="130">چناران</option><option value="131">درگز</option><option value="132">فیروزه</option><option value="133">قوچان</option><option value="134">سرخس</option><option value="135">رشتخوار</option><option value="136">بینالود</option><option value="137">زاوه</option><option value="138">جوین</option><option value="139">بجستان</option><option value="140">باخزر</option><option value="141">فريمان</option><option value="142">خلیل آباد</option><option value="143">جغتای</option><option value="144">خوشاب</option><option value="155">طبس</option></optgroup><optgroup label="خراسان جنوبی"><option value="145">زیرکوه</option><option value="146">خوسف</option><option value="147">درمیان</option><option value="148">قائنات</option><option value="149">بشرویه</option><option value="150">فردوس</option><option value="151">بيرجند</option><option value="152">نهبندان</option><option value="153">سربيشه</option><option value="154">سرایان</option></optgroup><optgroup label="خراسان شمالی"><option value="156">بجنورد</option><option value="157">راز و جرگلان</option><option value="158">اسفراين</option><option value="159">جاجرم</option><option value="160">شيروان</option><option value="161">مانه و سملقان</option><option value="162">گرمه</option><option value="163">فاروج</option></optgroup><optgroup label="خوزستان"><option value="164">کارون</option><option value="165">حمیدیه</option><option value="166">آغاجری</option><option value="167">شوشتر</option><option value="168">دشت آزادگان</option><option value="169">اميديه</option><option value="170">گتوند</option><option value="171">شادگان</option><option value="172">دزفول</option><option value="173">رامشیر</option><option value="174">بهبهان</option><option value="175">باوی</option><option value="176">انديمشك</option><option value="177">اهواز</option><option value="178">اندیکا</option><option value="179">شوش</option><option value="180">آبادان</option><option value="181">هنديجان</option><option value="182">خرمشهر</option><option value="183">مسجد سليمان</option><option value="184">ايذه</option><option value="185">رامهرمز</option><option value="186">باغ ملك</option><option value="187">هفتکل</option><option value="188">هويزه</option><option value="189">ماهشهر</option><option value="190">لالي</option></optgroup><optgroup label="زنجان"><option value="191">زنجان</option><option value="192">ابهر</option><option value="193">خدابنده</option><option value="194">ماهنشان</option><option value="195">خرمدره</option><option value="196">ايجرود</option><option value="197">طارم</option><option value="198">سلطانیه</option></optgroup><optgroup label="سمنان"><option value="199">سمنان</option><option value="200">شاهرود</option><option value="201">گرمسار</option><option value="202">سرخه</option><option value="203">دامغان</option><option value="204">آرادان</option><option value="205">مهدی شهر</option><option value="206">میامی</option></optgroup><optgroup label="سیستان و بلوچستان"><option value="207">زاهدان</option><option value="208">بمپور</option><option value="209">چابهار</option><option value="210">خاش</option><option value="211">سراوان</option><option value="212">زابل</option><option value="213">سرباز</option><option value="214">قصر قند</option><option value="215">نيكشهر</option><option value="216">کنارک</option><option value="217">ايرانشهر</option><option value="218">زهک</option><option value="219">سیب و سوران</option><option value="220">ميرجاوه</option><option value="221">دلگان</option><option value="222">هیرمند</option><option value="223">مهرستان</option><option value="224">فنوج</option><option value="225">هامون</option><option value="226">نیمروز</option></optgroup><optgroup label="فارس"><option value="227">شیراز</option><option value="228">اقليد</option><option value="229">داراب</option><option value="230">فسا</option><option value="231">مرودشت</option><option value="232">خرم بيد</option><option value="233">آباده</option><option value="234">كازرون</option><option value="235">گراش</option><option value="236">ممسني</option><option value="237">سپيدان</option><option value="238">لارستان</option><option value="239">فيروز آباد</option><option value="240">جهرم</option><option value="241">ني ريز</option><option value="242">استهبان</option><option value="243">لامرد</option><option value="244">مهر</option><option value="245">پاسارگاد</option><option value="246">ارسنجان</option><option value="247">قيروكارزين</option><option value="248">رستم</option><option value="249">فراشبند</option><option value="250">سروستان</option><option value="251">زرین دشت</option><option value="252">کوار</option><option value="253">بوانات</option><option value="254">خرامه</option><option value="255">خنج</option></optgroup><optgroup label="قزوین"><option value="256">قزوين</option><option value="257">تاكستان</option><option value="258">آبيك</option><option value="259">بوئين زهرا</option><option value="260">البرز</option><option value="261">آوج</option></optgroup><optgroup label="قم"><option value="262">قم</option></optgroup><optgroup label="البرز"><option value="263">طالقان</option><option value="264">اشتهارد</option><option value="265">كرج</option><option value="266">نظر آباد</option><option value="267">ساوجبلاغ‎</option><option value="268">فردیس</option></optgroup><optgroup label="کردستان"><option value="269">سنندج</option><option value="270">ديواندره</option><option value="271">بانه</option><option value="272">بيجار</option><option value="273">سقز</option><option value="274">كامياران</option><option value="275">قروه</option><option value="276">مريوان</option><option value="277">سروآباد‎</option><option value="278">دهگلان‎</option></optgroup><optgroup label="کرمان"><option value="279">كرمان</option><option value="280">راور</option><option value="281">شهر بابک</option><option value="282">انار</option><option value="283">کوهبنان</option><option value="284">رفسنجان</option><option value="285">سيرجان</option><option value="286">كهنوج</option><option value="287">زرند</option><option value="288">ریگان</option><option value="289">بم</option><option value="290">جيرفت</option><option value="291">عنبرآباد</option><option value="292">بافت</option><option value="293">ارزوئيه</option><option value="294">بردسیر</option><option value="295">فهرج</option><option value="296">فاریاب</option><option value="297">منوجان</option><option value="298">نرماشیر</option><option value="299">قلعه گنج</option><option value="300">رابر</option><option value="301">رودبار جنوب</option></optgroup><optgroup label="کرمانشاه"><option value="302">كرمانشاه</option><option value="303">اسلام آباد غرب</option><option value="304">سر پل ذهاب</option><option value="305">كنگاور</option><option value="306">سنقر</option><option value="307">قصر شيرين</option><option value="308">گيلان غرب</option><option value="309">هرسين</option><option value="310">صحنه</option><option value="311">پاوه</option><option value="312">جوانرود</option><option value="313">دالاهو</option><option value="314">روانسر</option><option value="315">ثلاث باباجانی</option></optgroup><optgroup label="کهکیلویه و بویراحمد"><option value="316">ياسوج</option><option value="317">گچساران</option><option value="318">دنا</option><option value="319">کهگیلویه‎</option><option value="320">لنده</option><option value="321">بهمئی</option><option value="322">باشت</option><option value="323">بویراحمد</option><option value="324">چرام</option></optgroup><optgroup label="گلستان"><option value="325">گرگان</option><option value="326">آق قلا</option><option value="327">گنبد كاووس</option><option value="328">علی آباد</option><option value="329">مينو دشت</option><option value="330">تركمن</option><option value="331">كردكوي</option><option value="332">بندر گز</option><option value="333">كلاله</option><option value="334">آزاد شهر</option><option value="335">راميان</option><option value="336">گالیکش‎</option><option value="337">مراوه تپه</option><option value="338">گمیشان</option></optgroup><optgroup label="گیلان"><option value="339">رشت</option><option value="340">لنگرود</option><option value="341">رودسر</option><option value="342">طوالش</option><option value="343">آستارا</option><option value="344">آستانه اشرفيه</option><option value="345">رودبار</option><option value="346">فومن</option><option value="347">صومعه سرا</option><option value="348">بندرانزلي</option><option value="349">رضوانشهر</option><option value="350">ماسال</option><option value="351">شفت</option><option value="352">سياهكل</option><option value="353">املش</option><option value="354">لاهیجان</option></optgroup><optgroup label="لرستان"><option value="355">خرم آباد</option><option value="356">دلفان</option><option value="357">بروجرد</option><option value="358">دورود</option><option value="359">اليگودرز</option><option value="360">ازنا</option><option value="361">كوهدشت</option><option value="362">سلسله</option><option value="363">پلدختر</option><option value="364">دوره</option><option value="365">رومشکان</option></optgroup><optgroup label="مازندران"><option value="366">ساري</option><option value="367">آمل</option><option value="368">بابل</option><option value="369">بابلسر</option><option value="370">بهشهر</option><option value="371">تنكابن</option><option value="372">جويبار</option><option value="373">چالوس</option><option value="374">رامسر</option><option value="375">سواد كوه</option><option value="376">قائم شهر</option><option value="377">نكا</option><option value="378">نور</option><option value="379">نوشهر</option><option value="380">محمودآباد</option><option value="381">فریدونکنار</option><option value="382">عباس آباد</option><option value="383">گلوگاه</option><option value="384">میاندورود</option><option value="385">سیمرغ</option><option value="386">کلاردشت</option><option value="387">سوادکوه شمالی</option></optgroup><optgroup label="مرکزی"><option value="388">اراک</option><option value="389">آشتيان</option><option value="390">تفرش</option><option value="391">خمين</option><option value="392">دليجان</option><option value="393">ساوه</option><option value="394">زرندیه</option><option value="395">محلات</option><option value="396">شازند</option><option value="397">فراهان</option><option value="398">خنداب</option><option value="399">کمیجان</option></optgroup><optgroup label="هرمزگان"><option value="400">بندرعباس</option><option value="401">قشم</option><option value="402">بندر لنگه</option><option value="403">بستك</option><option value="404">حاجی آباد هرمزگان</option><option value="405">رودان</option><option value="406">ميناب</option><option value="407">ابوموسي</option><option value="408">جاسک</option><option value="409">خمیر</option><option value="410">پارسیان</option><option value="411">بشاگرد</option><option value="412">سیریک</option><option value="413">حاجی آباد</option></optgroup><optgroup label="همدان"><option value="414">همدان</option><option value="415">ملاير</option><option value="416">تويسركان</option><option value="417">نهاوند</option><option value="418">كبودر اهنگ</option><option value="419">رزن</option><option value="420">اسدآباد</option><option value="421">بهار</option><option value="422">فامنین</option></optgroup><optgroup label="یزد"><option value="423">يزد</option><option value="424">تفت</option><option value="425">اردكان</option><option value="426">ابركوه</option><option value="427">ميبد</option><option value="428">بافق</option><option value="429">صدوق</option><option value="430">مهریز</option><option value="431">خاتم</option></optgroup></select><span class="select2 select2-container select2-container--default" dir="rtl" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-FilterCity-container"><span class="select2-selection__rendered" id="select2-FilterCity-container"><span class="select2-selection__placeholder"> انتخاب شهر</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                </div>
+                <div class="col m10 s12 filter-item right mt-0">
+                    <div class="row no-margins">
+                        <div class="col l11 m10 s12 right search-item search-box">
+                            <input placeholder="قسمتی از نام کلینیک یا مرکز درمانی، پزشک، تخصص یا خدمت مورد نظر خود را درج کنید" type="text" autocomplete="off" id="SearchTerm" class="search-input right-align">
+                            <div class="search-result z-depth-3" id="SearchResult">
+                                <ul class="clinic-results">
+                                    <li><a href="https://health.teb20.com/#"></a></li>
+                                    <li><a href="https://health.teb20.com/#"></a></li>
+                                    <li><a href="https://health.teb20.com/#"></a></li>
+                                    <li><a href="https://health.teb20.com/#"></a></li>
+                                    <li><a href="https://health.teb20.com/#"></a></li>
+                                </ul>
+                            </div>
+                            <span class="btn-close-search">
+                                <i class="material-icons">close</i>
+                            </span>
+                        </div>
+                        <div class="col l1 m2 s12 right search-item">
+                            <button class="waves-effect waves-teal btn-search" title="جستجو">
+                                <i class="material-icons">search</i>
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<div class="fixed-action-btn btnShowMoreListWr">
+    <a id="ShowMoreList" class="waves-effect waves-light btn indigo lighten-3 center-align" data-position="bottom" style="display: none;">مشاهده بیشتر</a>
+</div>
+
+<div class="lockpage" style="display:none;"><span class="animate-flicker"></span></div>
+
+<div class="row">
+    <div class="col s12 visit_list_wr right">
+        <ul class="collapsible popout doctor-list" id="VisitList" data-collapsible="accordion"></ul>
+    </div>
+
+    
+</div>
+
+<div class="row">
+    <div class="col s12">
+            <section class="favorite-clinics">
+        <h2 class="section-title">مراکز منتخب من</h2>
+        <div class="row no-padding">
+                <div class="col s12 m4">
+                    <a href="https://health.teb20.com/%D9%85%D8%B1%DA%A9%D8%B2-%D8%AF%D8%B1%D9%85%D8%A7%D9%86%DB%8C/1">
+                        <div class="fav-clinic-item z-depth-2">
+                            <div class="row">
+                                <div class="col s5 fav-clinic-image">
+                                        <img class="" src="./- طب 20 - Teb20_files/ISHWmP7pkapS1O8aBby4g.jpg">
+                                </div>
+                                <div class="col s7 fav-clinic-info">
+                                    <h4>کلینیک شیخ الرئیس تبریز</h4>
+                                    <p>
+                                        <label>
+                                            ساعات کاری:
+                                        </label>
+
+                                        <span>
+                                            
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col s12 address">
+                                    <p>
+                                        <label>
+                                            آدرس:
+                                        </label>
+
+                                        <span>
+                                             تبریز -خیابان آزادی - نرسیده به گلگشت -  تلفن تماس: 18-33366215-041
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m4">
+                    <a href="https://health.teb20.com/%D9%85%D8%B1%DA%A9%D8%B2-%D8%AF%D8%B1%D9%85%D8%A7%D9%86%DB%8C/2">
+                        <div class="fav-clinic-item z-depth-2">
+                            <div class="row">
+                                <div class="col s5 fav-clinic-image">
+                                        <img class="" src="./- طب 20 - Teb20_files/D8nS2e3bnUGv6ct9XJhRVQ.jpg">
+                                </div>
+                                <div class="col s7 fav-clinic-info">
+                                    <h4>ساختمان سلامت</h4>
+                                    <p>
+                                        <label>
+                                            ساعات کاری:
+                                        </label>
+
+                                        <span>
+                                            
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col s12 address">
+                                    <p>
+                                        <label>
+                                            آدرس:
+                                        </label>
+
+                                        <span>
+                                            آذربایجان شرقی  تبریز -میدان پیشقدم . ساختمان سلامت
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m4">
+                    <a href="https://health.teb20.com/%D9%85%D8%B1%DA%A9%D8%B2-%D8%AF%D8%B1%D9%85%D8%A7%D9%86%DB%8C/5">
+                        <div class="fav-clinic-item z-depth-2">
+                            <div class="row">
+                                <div class="col s5 fav-clinic-image">
+                                        <img class="" src="./- طب 20 - Teb20_files/ijnPLvCL30ypf8Ln2WJwPw.jpeg">
+                                </div>
+                                <div class="col s7 fav-clinic-info">
+                                    <h4>مرکز سلامت ایرانیان</h4>
+                                    <p>
+                                        <label>
+                                            ساعات کاری:
+                                        </label>
+
+                                        <span>
+                                            
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col s12 address">
+                                    <p>
+                                        <label>
+                                            آدرس:
+                                        </label>
+
+                                        <span>
+                                            اصفهان
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m4">
+                    <a href="https://health.teb20.com/%D9%85%D8%B1%DA%A9%D8%B2-%D8%AF%D8%B1%D9%85%D8%A7%D9%86%DB%8C/7">
+                        <div class="fav-clinic-item z-depth-2">
+                            <div class="row">
+                                <div class="col s5 fav-clinic-image">
+                                        <img class="" src="./- طب 20 - Teb20_files/GSHibqzRkegCU3yIsLkxA.jpg">
+                                </div>
+                                <div class="col s7 fav-clinic-info">
+                                    <h4>بیمارستان بهبود</h4>
+                                    <p>
+                                        <label>
+                                            ساعات کاری:
+                                        </label>
+
+                                        <span>
+                                            شبانه روزی
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col s12 address">
+                                    <p>
+                                        <label>
+                                            آدرس:
+                                        </label>
+
+                                        <span>
+                                            خیابان ارتش جنوبی حدفاصل میدان ساعت و چهارراه باغشمال
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m4">
+                    <a href="https://health.teb20.com/%D9%85%D8%B1%DA%A9%D8%B2-%D8%AF%D8%B1%D9%85%D8%A7%D9%86%DB%8C/14">
+                        <div class="fav-clinic-item z-depth-2">
+                            <div class="row">
+                                <div class="col s5 fav-clinic-image">
+                                        <img class="" src="./- طب 20 - Teb20_files/medical-center.jpg">
+                                </div>
+                                <div class="col s7 fav-clinic-info">
+                                    <h4>کلینیک تخصصی قلب و عروق زاینده رود</h4>
+                                    <p>
+                                        <label>
+                                            ساعات کاری:
+                                        </label>
+
+                                        <span>
+                                            
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col s12 address">
+                                    <p>
+                                        <label>
+                                            آدرس:
+                                        </label>
+
+                                        <span>
+                                            کلینیک تخصصی قلب و عروق زاینده رود
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m4">
+                    <a href="https://health.teb20.com/%D9%85%D8%B1%DA%A9%D8%B2-%D8%AF%D8%B1%D9%85%D8%A7%D9%86%DB%8C/24">
+                        <div class="fav-clinic-item z-depth-2">
+                            <div class="row">
+                                <div class="col s5 fav-clinic-image">
+                                        <img class="" src="./- طب 20 - Teb20_files/medical-center.jpg">
+                                </div>
+                                <div class="col s7 fav-clinic-info">
+                                    <h4>درمانگاه شبانه روزی ولیعصر شهررضا</h4>
+                                    <p>
+                                        <label>
+                                            ساعات کاری:
+                                        </label>
+
+                                        <span>
+                                            
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col s12 address">
+                                    <p>
+                                        <label>
+                                            آدرس:
+                                        </label>
+
+                                        <span>
+                                            اصفهان - شهررضا
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m4">
+                    <a href="https://health.teb20.com/%D9%85%D8%B1%DA%A9%D8%B2-%D8%AF%D8%B1%D9%85%D8%A7%D9%86%DB%8C/25">
+                        <div class="fav-clinic-item z-depth-2">
+                            <div class="row">
+                                <div class="col s5 fav-clinic-image">
+                                        <img class="" src="./- طب 20 - Teb20_files/medical-center.jpg">
+                                </div>
+                                <div class="col s7 fav-clinic-info">
+                                    <h4>درمانگاه پروین اصفهان</h4>
+                                    <p>
+                                        <label>
+                                            ساعات کاری:
+                                        </label>
+
+                                        <span>
+                                            
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="col s12 address">
+                                    <p>
+                                        <label>
+                                            آدرس:
+                                        </label>
+
+                                        <span>
+                                            اصفهان - خیابان پروین. روبروی کوی امامزاده اسحاق نبش کوچه 24 
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+        </div>
+    </section>
+
+    </div>
+</div>
+
+<input id="HidFilterLastDrID" name="HidFilterLastDrID" type="hidden" value="0">
+<input id="HidFilterFoundRows" name="HidFilterFoundRows" type="hidden" value="0">
+
+<input id="HidCities" name="HidCities" type="hidden" value="[{&quot;text&quot;:&quot;آذربایجان شرقی&quot;,&quot;children&quot;:[{&quot;id&quot;:1,&quot;text&quot;:&quot;تبريز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:2,&quot;text&quot;:&quot;عجب شير&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:3,&quot;text&quot;:&quot;آذر شهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:4,&quot;text&quot;:&quot;بناب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:5,&quot;text&quot;:&quot;بستان آباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:6,&quot;text&quot;:&quot;چاراویماق&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:7,&quot;text&quot;:&quot;هشترود&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:8,&quot;text&quot;:&quot;هريس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:9,&quot;text&quot;:&quot;جلفا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:10,&quot;text&quot;:&quot;كليبر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:11,&quot;text&quot;:&quot;خداآفرین&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:12,&quot;text&quot;:&quot;ملكان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:13,&quot;text&quot;:&quot;مراغه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:14,&quot;text&quot;:&quot;ميانه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:15,&quot;text&quot;:&quot;مرند&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:16,&quot;text&quot;:&quot;اسكو&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:17,&quot;text&quot;:&quot;سراب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:18,&quot;text&quot;:&quot;شبستر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:19,&quot;text&quot;:&quot;اهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:20,&quot;text&quot;:&quot;ورزقان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;آذربایجان غربی&quot;,&quot;children&quot;:[{&quot;id&quot;:21,&quot;text&quot;:&quot;اروميه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:22,&quot;text&quot;:&quot;نقده&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:23,&quot;text&quot;:&quot;ماكو&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:24,&quot;text&quot;:&quot;تكاب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:25,&quot;text&quot;:&quot;خوي&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:26,&quot;text&quot;:&quot;مهاباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:27,&quot;text&quot;:&quot;سر دشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:28,&quot;text&quot;:&quot;چالدران&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:29,&quot;text&quot;:&quot;بوكان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:30,&quot;text&quot;:&quot;مياندوآب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:31,&quot;text&quot;:&quot;سلماس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:32,&quot;text&quot;:&quot;شاهين دژ&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:33,&quot;text&quot;:&quot;پيرانشهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:34,&quot;text&quot;:&quot;اشنويه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:35,&quot;text&quot;:&quot;چایپاره&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:36,&quot;text&quot;:&quot;پلدشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:37,&quot;text&quot;:&quot;شوط&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;اردبیل&quot;,&quot;children&quot;:[{&quot;id&quot;:38,&quot;text&quot;:&quot;اردبيل&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:39,&quot;text&quot;:&quot;سرعين&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:40,&quot;text&quot;:&quot;بيله سوار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:41,&quot;text&quot;:&quot;پارس آباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:42,&quot;text&quot;:&quot;خلخال&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:43,&quot;text&quot;:&quot;مشگين شهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:44,&quot;text&quot;:&quot;نمين&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:45,&quot;text&quot;:&quot;نير&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:46,&quot;text&quot;:&quot;كوثر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:47,&quot;text&quot;:&quot;گرمي&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;اصفهان&quot;,&quot;children&quot;:[{&quot;id&quot;:48,&quot;text&quot;:&quot;بوئین و میاندشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:49,&quot;text&quot;:&quot;مباركه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:50,&quot;text&quot;:&quot;اردستان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:51,&quot;text&quot;:&quot;خور و بیابانک&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:52,&quot;text&quot;:&quot;فلاورجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:53,&quot;text&quot;:&quot;فريدون شهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:54,&quot;text&quot;:&quot;كاشان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:55,&quot;text&quot;:&quot;لنجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:56,&quot;text&quot;:&quot;گلپايگان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:57,&quot;text&quot;:&quot;فريدن&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:58,&quot;text&quot;:&quot;نايين&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:59,&quot;text&quot;:&quot;اصفهان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:60,&quot;text&quot;:&quot;نجف آباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:61,&quot;text&quot;:&quot;آران و بيدگل&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:62,&quot;text&quot;:&quot;چادگان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:63,&quot;text&quot;:&quot;تیران و کرون&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:64,&quot;text&quot;:&quot;شهرضا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:65,&quot;text&quot;:&quot;سميرم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:66,&quot;text&quot;:&quot;خميني شهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:67,&quot;text&quot;:&quot;دهاقان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:68,&quot;text&quot;:&quot;نطنز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:69,&quot;text&quot;:&quot;برخوار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:70,&quot;text&quot;:&quot;شاهین شهر و میمه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:71,&quot;text&quot;:&quot;خوانسار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;ایلام&quot;,&quot;children&quot;:[{&quot;id&quot;:72,&quot;text&quot;:&quot;ايلام&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:73,&quot;text&quot;:&quot;مهران&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:74,&quot;text&quot;:&quot;دهلران&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:75,&quot;text&quot;:&quot;آبدانان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:76,&quot;text&quot;:&quot;چرداول&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:77,&quot;text&quot;:&quot;دره شهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:78,&quot;text&quot;:&quot;ايوان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:79,&quot;text&quot;:&quot;بدره&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:80,&quot;text&quot;:&quot;سیروان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:81,&quot;text&quot;:&quot;ملکشاهی&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;بوشهر&quot;,&quot;children&quot;:[{&quot;id&quot;:82,&quot;text&quot;:&quot;عسلویه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:83,&quot;text&quot;:&quot;گناوه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:84,&quot;text&quot;:&quot;دشتي&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:85,&quot;text&quot;:&quot;دشتستان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:86,&quot;text&quot;:&quot;دير&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:87,&quot;text&quot;:&quot;بوشهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:88,&quot;text&quot;:&quot;كنگان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:89,&quot;text&quot;:&quot;تنگستان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:90,&quot;text&quot;:&quot;ديلم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:91,&quot;text&quot;:&quot;جم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;تهران&quot;,&quot;children&quot;:[{&quot;id&quot;:92,&quot;text&quot;:&quot;قرچك&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:93,&quot;text&quot;:&quot;پردیس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:94,&quot;text&quot;:&quot;بهارستان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:95,&quot;text&quot;:&quot;شمیرانات&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:96,&quot;text&quot;:&quot;رباط كريم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:97,&quot;text&quot;:&quot;فيروزكوه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:98,&quot;text&quot;:&quot;تهران&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:99,&quot;text&quot;:&quot;ورامين&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:100,&quot;text&quot;:&quot;اسلامشهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:101,&quot;text&quot;:&quot;ري&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:102,&quot;text&quot;:&quot;پاكدشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:103,&quot;text&quot;:&quot;پیشوا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:104,&quot;text&quot;:&quot;قدس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:105,&quot;text&quot;:&quot;ملارد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:106,&quot;text&quot;:&quot;شهريار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:107,&quot;text&quot;:&quot;دماوند&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;چهارمحال و بختیاری&quot;,&quot;children&quot;:[{&quot;id&quot;:108,&quot;text&quot;:&quot;بن&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:109,&quot;text&quot;:&quot;سامان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:110,&quot;text&quot;:&quot;کیار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:111,&quot;text&quot;:&quot;بروجن&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:112,&quot;text&quot;:&quot;اردل&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:113,&quot;text&quot;:&quot;شهركرد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:114,&quot;text&quot;:&quot;فارسان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:115,&quot;text&quot;:&quot;کوهرنگ&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:116,&quot;text&quot;:&quot;لردگان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;خراسان رضوی&quot;,&quot;children&quot;:[{&quot;id&quot;:117,&quot;text&quot;:&quot;داورزن&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:118,&quot;text&quot;:&quot;كلات&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:119,&quot;text&quot;:&quot;بردسكن&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:120,&quot;text&quot;:&quot;مشهد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:121,&quot;text&quot;:&quot;نيشابور&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:122,&quot;text&quot;:&quot;سبزوار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:123,&quot;text&quot;:&quot;كاشمر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:124,&quot;text&quot;:&quot;گناباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:125,&quot;text&quot;:&quot;تربت حيدريه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:126,&quot;text&quot;:&quot;خواف&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:127,&quot;text&quot;:&quot;تربت جام&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:128,&quot;text&quot;:&quot;تايباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:129,&quot;text&quot;:&quot;مه ولات&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:130,&quot;text&quot;:&quot;چناران&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:131,&quot;text&quot;:&quot;درگز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:132,&quot;text&quot;:&quot;فیروزه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:133,&quot;text&quot;:&quot;قوچان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:134,&quot;text&quot;:&quot;سرخس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:135,&quot;text&quot;:&quot;رشتخوار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:136,&quot;text&quot;:&quot;بینالود&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:137,&quot;text&quot;:&quot;زاوه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:138,&quot;text&quot;:&quot;جوین&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:139,&quot;text&quot;:&quot;بجستان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:140,&quot;text&quot;:&quot;باخزر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:141,&quot;text&quot;:&quot;فريمان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:142,&quot;text&quot;:&quot;خلیل آباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:143,&quot;text&quot;:&quot;جغتای&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:144,&quot;text&quot;:&quot;خوشاب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:155,&quot;text&quot;:&quot;طبس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;خراسان جنوبی&quot;,&quot;children&quot;:[{&quot;id&quot;:145,&quot;text&quot;:&quot;زیرکوه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:146,&quot;text&quot;:&quot;خوسف&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:147,&quot;text&quot;:&quot;درمیان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:148,&quot;text&quot;:&quot;قائنات&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:149,&quot;text&quot;:&quot;بشرویه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:150,&quot;text&quot;:&quot;فردوس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:151,&quot;text&quot;:&quot;بيرجند&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:152,&quot;text&quot;:&quot;نهبندان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:153,&quot;text&quot;:&quot;سربيشه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:154,&quot;text&quot;:&quot;سرایان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;خراسان شمالی&quot;,&quot;children&quot;:[{&quot;id&quot;:156,&quot;text&quot;:&quot;بجنورد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:157,&quot;text&quot;:&quot;راز و جرگلان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:158,&quot;text&quot;:&quot;اسفراين&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:159,&quot;text&quot;:&quot;جاجرم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:160,&quot;text&quot;:&quot;شيروان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:161,&quot;text&quot;:&quot;مانه و سملقان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:162,&quot;text&quot;:&quot;گرمه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:163,&quot;text&quot;:&quot;فاروج&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;خوزستان&quot;,&quot;children&quot;:[{&quot;id&quot;:164,&quot;text&quot;:&quot;کارون&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:165,&quot;text&quot;:&quot;حمیدیه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:166,&quot;text&quot;:&quot;آغاجری&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:167,&quot;text&quot;:&quot;شوشتر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:168,&quot;text&quot;:&quot;دشت آزادگان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:169,&quot;text&quot;:&quot;اميديه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:170,&quot;text&quot;:&quot;گتوند&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:171,&quot;text&quot;:&quot;شادگان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:172,&quot;text&quot;:&quot;دزفول&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:173,&quot;text&quot;:&quot;رامشیر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:174,&quot;text&quot;:&quot;بهبهان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:175,&quot;text&quot;:&quot;باوی&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:176,&quot;text&quot;:&quot;انديمشك&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:177,&quot;text&quot;:&quot;اهواز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:178,&quot;text&quot;:&quot;اندیکا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:179,&quot;text&quot;:&quot;شوش&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:180,&quot;text&quot;:&quot;آبادان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:181,&quot;text&quot;:&quot;هنديجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:182,&quot;text&quot;:&quot;خرمشهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:183,&quot;text&quot;:&quot;مسجد سليمان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:184,&quot;text&quot;:&quot;ايذه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:185,&quot;text&quot;:&quot;رامهرمز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:186,&quot;text&quot;:&quot;باغ ملك&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:187,&quot;text&quot;:&quot;هفتکل&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:188,&quot;text&quot;:&quot;هويزه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:189,&quot;text&quot;:&quot;ماهشهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:190,&quot;text&quot;:&quot;لالي&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;زنجان&quot;,&quot;children&quot;:[{&quot;id&quot;:191,&quot;text&quot;:&quot;زنجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:192,&quot;text&quot;:&quot;ابهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:193,&quot;text&quot;:&quot;خدابنده&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:194,&quot;text&quot;:&quot;ماهنشان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:195,&quot;text&quot;:&quot;خرمدره&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:196,&quot;text&quot;:&quot;ايجرود&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:197,&quot;text&quot;:&quot;طارم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:198,&quot;text&quot;:&quot;سلطانیه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;سمنان&quot;,&quot;children&quot;:[{&quot;id&quot;:199,&quot;text&quot;:&quot;سمنان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:200,&quot;text&quot;:&quot;شاهرود&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:201,&quot;text&quot;:&quot;گرمسار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:202,&quot;text&quot;:&quot;سرخه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:203,&quot;text&quot;:&quot;دامغان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:204,&quot;text&quot;:&quot;آرادان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:205,&quot;text&quot;:&quot;مهدی شهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:206,&quot;text&quot;:&quot;میامی&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;سیستان و بلوچستان&quot;,&quot;children&quot;:[{&quot;id&quot;:207,&quot;text&quot;:&quot;زاهدان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:208,&quot;text&quot;:&quot;بمپور&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:209,&quot;text&quot;:&quot;چابهار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:210,&quot;text&quot;:&quot;خاش&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:211,&quot;text&quot;:&quot;سراوان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:212,&quot;text&quot;:&quot;زابل&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:213,&quot;text&quot;:&quot;سرباز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:214,&quot;text&quot;:&quot;قصر قند&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:215,&quot;text&quot;:&quot;نيكشهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:216,&quot;text&quot;:&quot;کنارک&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:217,&quot;text&quot;:&quot;ايرانشهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:218,&quot;text&quot;:&quot;زهک&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:219,&quot;text&quot;:&quot;سیب و سوران&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:220,&quot;text&quot;:&quot;ميرجاوه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:221,&quot;text&quot;:&quot;دلگان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:222,&quot;text&quot;:&quot;هیرمند&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:223,&quot;text&quot;:&quot;مهرستان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:224,&quot;text&quot;:&quot;فنوج&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:225,&quot;text&quot;:&quot;هامون&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:226,&quot;text&quot;:&quot;نیمروز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;فارس&quot;,&quot;children&quot;:[{&quot;id&quot;:227,&quot;text&quot;:&quot;شیراز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:228,&quot;text&quot;:&quot;اقليد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:229,&quot;text&quot;:&quot;داراب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:230,&quot;text&quot;:&quot;فسا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:231,&quot;text&quot;:&quot;مرودشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:232,&quot;text&quot;:&quot;خرم بيد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:233,&quot;text&quot;:&quot;آباده&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:234,&quot;text&quot;:&quot;كازرون&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:235,&quot;text&quot;:&quot;گراش&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:236,&quot;text&quot;:&quot;ممسني&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:237,&quot;text&quot;:&quot;سپيدان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:238,&quot;text&quot;:&quot;لارستان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:239,&quot;text&quot;:&quot;فيروز آباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:240,&quot;text&quot;:&quot;جهرم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:241,&quot;text&quot;:&quot;ني ريز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:242,&quot;text&quot;:&quot;استهبان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:243,&quot;text&quot;:&quot;لامرد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:244,&quot;text&quot;:&quot;مهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:245,&quot;text&quot;:&quot;پاسارگاد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:246,&quot;text&quot;:&quot;ارسنجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:247,&quot;text&quot;:&quot;قيروكارزين&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:248,&quot;text&quot;:&quot;رستم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:249,&quot;text&quot;:&quot;فراشبند&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:250,&quot;text&quot;:&quot;سروستان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:251,&quot;text&quot;:&quot;زرین دشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:252,&quot;text&quot;:&quot;کوار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:253,&quot;text&quot;:&quot;بوانات&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:254,&quot;text&quot;:&quot;خرامه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:255,&quot;text&quot;:&quot;خنج&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;قزوین&quot;,&quot;children&quot;:[{&quot;id&quot;:256,&quot;text&quot;:&quot;قزوين&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:257,&quot;text&quot;:&quot;تاكستان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:258,&quot;text&quot;:&quot;آبيك&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:259,&quot;text&quot;:&quot;بوئين زهرا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:260,&quot;text&quot;:&quot;البرز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:261,&quot;text&quot;:&quot;آوج&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;قم&quot;,&quot;children&quot;:[{&quot;id&quot;:262,&quot;text&quot;:&quot;قم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;البرز&quot;,&quot;children&quot;:[{&quot;id&quot;:263,&quot;text&quot;:&quot;طالقان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:264,&quot;text&quot;:&quot;اشتهارد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:265,&quot;text&quot;:&quot;كرج&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:266,&quot;text&quot;:&quot;نظر آباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:267,&quot;text&quot;:&quot;ساوجبلاغ‎&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:268,&quot;text&quot;:&quot;فردیس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;کردستان&quot;,&quot;children&quot;:[{&quot;id&quot;:269,&quot;text&quot;:&quot;سنندج&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:270,&quot;text&quot;:&quot;ديواندره&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:271,&quot;text&quot;:&quot;بانه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:272,&quot;text&quot;:&quot;بيجار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:273,&quot;text&quot;:&quot;سقز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:274,&quot;text&quot;:&quot;كامياران&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:275,&quot;text&quot;:&quot;قروه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:276,&quot;text&quot;:&quot;مريوان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:277,&quot;text&quot;:&quot;سروآباد‎&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:278,&quot;text&quot;:&quot;دهگلان‎&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;کرمان&quot;,&quot;children&quot;:[{&quot;id&quot;:279,&quot;text&quot;:&quot;كرمان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:280,&quot;text&quot;:&quot;راور&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:281,&quot;text&quot;:&quot;شهر بابک&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:282,&quot;text&quot;:&quot;انار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:283,&quot;text&quot;:&quot;کوهبنان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:284,&quot;text&quot;:&quot;رفسنجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:285,&quot;text&quot;:&quot;سيرجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:286,&quot;text&quot;:&quot;كهنوج&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:287,&quot;text&quot;:&quot;زرند&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:288,&quot;text&quot;:&quot;ریگان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:289,&quot;text&quot;:&quot;بم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:290,&quot;text&quot;:&quot;جيرفت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:291,&quot;text&quot;:&quot;عنبرآباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:292,&quot;text&quot;:&quot;بافت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:293,&quot;text&quot;:&quot;ارزوئيه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:294,&quot;text&quot;:&quot;بردسیر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:295,&quot;text&quot;:&quot;فهرج&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:296,&quot;text&quot;:&quot;فاریاب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:297,&quot;text&quot;:&quot;منوجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:298,&quot;text&quot;:&quot;نرماشیر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:299,&quot;text&quot;:&quot;قلعه گنج&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:300,&quot;text&quot;:&quot;رابر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:301,&quot;text&quot;:&quot;رودبار جنوب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;کرمانشاه&quot;,&quot;children&quot;:[{&quot;id&quot;:302,&quot;text&quot;:&quot;كرمانشاه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:303,&quot;text&quot;:&quot;اسلام آباد غرب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:304,&quot;text&quot;:&quot;سر پل ذهاب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:305,&quot;text&quot;:&quot;كنگاور&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:306,&quot;text&quot;:&quot;سنقر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:307,&quot;text&quot;:&quot;قصر شيرين&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:308,&quot;text&quot;:&quot;گيلان غرب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:309,&quot;text&quot;:&quot;هرسين&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:310,&quot;text&quot;:&quot;صحنه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:311,&quot;text&quot;:&quot;پاوه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:312,&quot;text&quot;:&quot;جوانرود&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:313,&quot;text&quot;:&quot;دالاهو&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:314,&quot;text&quot;:&quot;روانسر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:315,&quot;text&quot;:&quot;ثلاث باباجانی&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;کهکیلویه و بویراحمد&quot;,&quot;children&quot;:[{&quot;id&quot;:316,&quot;text&quot;:&quot;ياسوج&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:317,&quot;text&quot;:&quot;گچساران&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:318,&quot;text&quot;:&quot;دنا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:319,&quot;text&quot;:&quot;کهگیلویه‎&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:320,&quot;text&quot;:&quot;لنده&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:321,&quot;text&quot;:&quot;بهمئی&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:322,&quot;text&quot;:&quot;باشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:323,&quot;text&quot;:&quot;بویراحمد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:324,&quot;text&quot;:&quot;چرام&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;گلستان&quot;,&quot;children&quot;:[{&quot;id&quot;:325,&quot;text&quot;:&quot;گرگان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:326,&quot;text&quot;:&quot;آق قلا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:327,&quot;text&quot;:&quot;گنبد كاووس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:328,&quot;text&quot;:&quot;علی آباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:329,&quot;text&quot;:&quot;مينو دشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:330,&quot;text&quot;:&quot;تركمن&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:331,&quot;text&quot;:&quot;كردكوي&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:332,&quot;text&quot;:&quot;بندر گز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:333,&quot;text&quot;:&quot;كلاله&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:334,&quot;text&quot;:&quot;آزاد شهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:335,&quot;text&quot;:&quot;راميان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:336,&quot;text&quot;:&quot;گالیکش‎&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:337,&quot;text&quot;:&quot;مراوه تپه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:338,&quot;text&quot;:&quot;گمیشان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;گیلان&quot;,&quot;children&quot;:[{&quot;id&quot;:339,&quot;text&quot;:&quot;رشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:340,&quot;text&quot;:&quot;لنگرود&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:341,&quot;text&quot;:&quot;رودسر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:342,&quot;text&quot;:&quot;طوالش&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:343,&quot;text&quot;:&quot;آستارا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:344,&quot;text&quot;:&quot;آستانه اشرفيه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:345,&quot;text&quot;:&quot;رودبار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:346,&quot;text&quot;:&quot;فومن&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:347,&quot;text&quot;:&quot;صومعه سرا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:348,&quot;text&quot;:&quot;بندرانزلي&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:349,&quot;text&quot;:&quot;رضوانشهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:350,&quot;text&quot;:&quot;ماسال&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:351,&quot;text&quot;:&quot;شفت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:352,&quot;text&quot;:&quot;سياهكل&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:353,&quot;text&quot;:&quot;املش&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:354,&quot;text&quot;:&quot;لاهیجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;لرستان&quot;,&quot;children&quot;:[{&quot;id&quot;:355,&quot;text&quot;:&quot;خرم آباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:356,&quot;text&quot;:&quot;دلفان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:357,&quot;text&quot;:&quot;بروجرد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:358,&quot;text&quot;:&quot;دورود&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:359,&quot;text&quot;:&quot;اليگودرز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:360,&quot;text&quot;:&quot;ازنا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:361,&quot;text&quot;:&quot;كوهدشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:362,&quot;text&quot;:&quot;سلسله&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:363,&quot;text&quot;:&quot;پلدختر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:364,&quot;text&quot;:&quot;دوره&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:365,&quot;text&quot;:&quot;رومشکان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;مازندران&quot;,&quot;children&quot;:[{&quot;id&quot;:366,&quot;text&quot;:&quot;ساري&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:367,&quot;text&quot;:&quot;آمل&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:368,&quot;text&quot;:&quot;بابل&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:369,&quot;text&quot;:&quot;بابلسر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:370,&quot;text&quot;:&quot;بهشهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:371,&quot;text&quot;:&quot;تنكابن&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:372,&quot;text&quot;:&quot;جويبار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:373,&quot;text&quot;:&quot;چالوس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:374,&quot;text&quot;:&quot;رامسر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:375,&quot;text&quot;:&quot;سواد كوه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:376,&quot;text&quot;:&quot;قائم شهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:377,&quot;text&quot;:&quot;نكا&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:378,&quot;text&quot;:&quot;نور&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:379,&quot;text&quot;:&quot;نوشهر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:380,&quot;text&quot;:&quot;محمودآباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:381,&quot;text&quot;:&quot;فریدونکنار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:382,&quot;text&quot;:&quot;عباس آباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:383,&quot;text&quot;:&quot;گلوگاه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:384,&quot;text&quot;:&quot;میاندورود&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:385,&quot;text&quot;:&quot;سیمرغ&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:386,&quot;text&quot;:&quot;کلاردشت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:387,&quot;text&quot;:&quot;سوادکوه شمالی&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;مرکزی&quot;,&quot;children&quot;:[{&quot;id&quot;:388,&quot;text&quot;:&quot;اراک&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:389,&quot;text&quot;:&quot;آشتيان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:390,&quot;text&quot;:&quot;تفرش&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:391,&quot;text&quot;:&quot;خمين&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:392,&quot;text&quot;:&quot;دليجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:393,&quot;text&quot;:&quot;ساوه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:394,&quot;text&quot;:&quot;زرندیه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:395,&quot;text&quot;:&quot;محلات&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:396,&quot;text&quot;:&quot;شازند&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:397,&quot;text&quot;:&quot;فراهان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:398,&quot;text&quot;:&quot;خنداب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:399,&quot;text&quot;:&quot;کمیجان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;هرمزگان&quot;,&quot;children&quot;:[{&quot;id&quot;:400,&quot;text&quot;:&quot;بندرعباس&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:401,&quot;text&quot;:&quot;قشم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:402,&quot;text&quot;:&quot;بندر لنگه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:403,&quot;text&quot;:&quot;بستك&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:404,&quot;text&quot;:&quot;حاجی آباد هرمزگان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:405,&quot;text&quot;:&quot;رودان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:406,&quot;text&quot;:&quot;ميناب&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:407,&quot;text&quot;:&quot;ابوموسي&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:408,&quot;text&quot;:&quot;جاسک&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:409,&quot;text&quot;:&quot;خمیر&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:410,&quot;text&quot;:&quot;پارسیان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:411,&quot;text&quot;:&quot;بشاگرد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:412,&quot;text&quot;:&quot;سیریک&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:413,&quot;text&quot;:&quot;حاجی آباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;همدان&quot;,&quot;children&quot;:[{&quot;id&quot;:414,&quot;text&quot;:&quot;همدان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:415,&quot;text&quot;:&quot;ملاير&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:416,&quot;text&quot;:&quot;تويسركان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:417,&quot;text&quot;:&quot;نهاوند&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:418,&quot;text&quot;:&quot;كبودر اهنگ&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:419,&quot;text&quot;:&quot;رزن&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:420,&quot;text&quot;:&quot;اسدآباد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:421,&quot;text&quot;:&quot;بهار&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:422,&quot;text&quot;:&quot;فامنین&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]},{&quot;text&quot;:&quot;یزد&quot;,&quot;children&quot;:[{&quot;id&quot;:423,&quot;text&quot;:&quot;يزد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:424,&quot;text&quot;:&quot;تفت&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:425,&quot;text&quot;:&quot;اردكان&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:426,&quot;text&quot;:&quot;ابركوه&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:427,&quot;text&quot;:&quot;ميبد&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:428,&quot;text&quot;:&quot;بافق&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:429,&quot;text&quot;:&quot;صدوق&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:430,&quot;text&quot;:&quot;مهریز&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false},{&quot;id&quot;:431,&quot;text&quot;:&quot;خاتم&quot;,&quot;selected&quot;:false,&quot;disabled&quot;:false}]}]">
+<input id="HidInsurances" name="HidInsurances" type="hidden" value="">
+
+<div class="fixed-action-btn PreLoader" style="display: none;">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="scroll-this">
+
+<!-- Reserve  Modal Structure -->
+<div id="ReserveModal" class="modal bottom-sheet">
+    <div class="modal-content" id="ReserveModalContent">
+        <p>
+
+        </p>
+    </div>
+    <div class="modal-footer">
+        <div class="container">
+            <div class="row">
+
+                <button class="waves-effect waves-green btn-flat blue lighten-1 white-text hide" id="LoginButton">ورود</button>
+                <button class="waves-effect waves-green btn-flat blue lighten-1 white-text hide" id="RegisterButton">ثبت نام</button>
+                <button class="waves-effect waves-green btn-flat orange lighten-1 white-text hide" id="EditReserve">ویرایش</button>
+ 		<button class="waves-effect waves-light btn-flat green darken-1 white-text mr-10  hide" id="EstelamReserve">ادامه</button>
+
+                <button class="waves-effect waves-light btn-flat green darken-1 white-text mr-10 " id="SubmitReserve">ادامه</button>
+                <button class="waves-effect waves-green btn-flat blue-grey lighten-4 modal-close mr-10">انصراف</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </main>
+    </div>
+        <footer class="page-footer blue-grey darken-3 hide">
+            <a data-activates="slide-out" class="btn-floating btn-small blue-grey darken-1 btnExpandFooter">
+                <i class="material-icons expand-btn">expand_less</i>
+            </a>
+            <div class="container-fluid">
+                <div class="contactsWr row blue-grey darken-3">
+                    <div class="col l3 m5  right teal-text text-lighten-3 footer-top-label">
+                        
+                        <a class="contact-us-link" href="https://health.teb20.com/Home/Contact"> تماس با ما</a>
+
+                    </div>
+                    <div class=" col l2 m2  right center-align teal-text text-lighten-3">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="linksWr row blue-grey darken-1" style="display: none;">
+                    <div class="container">
+                        <div class="col m3 xs12">
+                            <div class="enamad">
+                                <a href="https://enamad.ir/"> <img alt="نماد اعتماد الکترونیکی" src="./- طب 20 - Teb20_files/enamad-logo.png"></a>
+                            </div>
+                        </div>
+                        <div class="col m9 xs12 right-align footer-links">
+                            <ul>
+                                <li><a class="grey-text text-lighten-3 modal-trigger about-us-link" href="https://health.teb20.com/#ModalAboutUs"> درباره سامانه خدمات Teb20</a></li>
+                                <li><a class="grey-text text-lighten-3 modal-trigger" href="https://health.teb20.com/#ModalRoles">قوانین استفاده</a></li>
+                                <li><a class="grey-text text-lighten-3 modal-trigger" href="https://health.teb20.com/#ModalFAQ">سوالات متداول</a></li>
+                                <li><a class="grey-text text-lighten-3 modal-trigger" href="https://health.teb20.com/#ModalHelp">راهنمای دریافت نوبت</a></li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <div id="overlay">
+        <div class="section-preloader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./- طب 20 - Teb20_files/jquery-3.4.1.min.js.download"></script>
+    <script src="./- طب 20 - Teb20_files/jquery.validate.min.js.download"></script>
+
+    
+    <script src="./- طب 20 - Teb20_files/materialize.min.js.download"></script>
+    <script src="./- طب 20 - Teb20_files/tooltip.js.download"></script>
+    <script src="./- طب 20 - Teb20_files/flickity.min.js.download"></script>
+    <script src="./- طب 20 - Teb20_files/select2.min.js.download"></script>
+
+    <script src="./- طب 20 - Teb20_files/attrchange.js.download"></script>
+
+    <script src="./- طب 20 - Teb20_files/functions.js.download"></script>
+    <script src="./- طب 20 - Teb20_files/active-page.js.download"></script>
+<script src="./- طب 20 - Teb20_files/item-body.js.download"></script>
+<script src="./- طب 20 - Teb20_files/load-list1.js.download"></script>
+<script src="./- طب 20 - Teb20_files/filters.js.download"></script>
+<script src="./- طب 20 - Teb20_files/reserve-form.js.download"></script>
+<script src="./- طب 20 - Teb20_files/master.js.download"></script>
+
+    <script src="./- طب 20 - Teb20_files/persian-date.min.js.download"></script>
+    <script src="./- طب 20 - Teb20_files/jquery.mpdatepicker.js.download"></script>
+    
+<script src="./- طب 20 - Teb20_files/starrr.js.download"></script>
+    <script src="./- طب 20 - Teb20_files/init.js.download"></script>
+    <script src="./- طب 20 - Teb20_files/config.js.download"></script>
+    <script src="./- طب 20 - Teb20_files/reserve1.js.download"></script>
+    <script type="text/javascript">
+        toggleMenu();
+
+        $(document).ready(function () {
+            $('a, button, input[type="button"], input[type="submit"], input[type="reset"], li.doctor-item').bind('dblclick', function (e) {
+                e.preventDefault();
+                alert("لطفا هنگام استفاده از وب سایت از دوبار کلیک کردن بروی کلیدها پرهیز کنید.");
+			});
+
+			$('.tooltipped').tooltip();
+
+			//$('.tooltipped').tooltip();
+
+            //if ($("#TX").length) {
+            //    var NU = $("#NU").val();
+            //    var TX = $("#TX").val();
+
+            //    if (TX.length > 0) {
+            //         SendSms(NU, TX, 0);
+            //        $("#NU").val('');
+            //        $("#TX").val('');
+            //    }
+            //}
+            //InitSideMenu();
+            $('.collapsible').collapsible();
+
+            if ($("#AfterBank").length) {
+                //$(".FilterBand").hide();
+
+                if ('False'.toLowerCase() == 'false') {
+                    $('footer').hide();
+                }
+            }
+            else {
+                 InitItems('0', '0');
+                 ExpnadFilterBtnClick();
+                 SetMainTop();
+
+                $(window).resize(function () {
+                     SetMainTop();
+                });
+
+
+                if ('False'.toLowerCase() === 'false') {
+                    FooterLinksHeight = $(".linksWr").outerHeight();
+                    FooterContactsHeight = $(".contactsWr").outerHeight();
+
+                    FooterCollapse();
+                     //ScrollFooter(FooterLinksHeight, FooterContactsHeight);
+                     ExpnadFooterBtnClick();
+
+                    $(window).scroll(function () {
+                        FooterLinksHeight = $(".linksWr").outerHeight();
+                        FooterContactsHeight = $(".contactsWr").outerHeight();
+
+                         //ScrollFooter(FooterLinksHeight, FooterContactsHeight);
+                    });
+
+                    $(window).resize(function () {
+                        FooterLinksHeight = $(".linksWr").outerHeight();
+                        FooterContactsHeight = $(".contactsWr").outerHeight();
+
+                         //ScrollFooter(FooterLinksHeight, FooterContactsHeight);
+                    });
+                }
+                else{
+                    $('#ShowMoreList').parent().removeClass('btnShowMoreListWr').addClass('btnShowMoreListWr_MyHealth');
+                }
+            }
+        });
+    </script>
+
+    
+    <script>
+		$('#SearchTerm').keyup(function (e) {
+			if (e.keyCode == 13) {
+				search();
+			}
+		});
+
+		$(".btn-search").click(function () {
+			search();
+		});
+
+		function search() {
+			var searchTerm = $('#SearchTerm').val();
+			var cityId = $("#FilterCity").val();
+			if (searchTerm.length > 1) {
+			$(".PreLoader").fadeIn(100);
+			$('#VisitList').load("/Home/SearchResult/", {
+				SearchTerm: searchTerm,
+				CityId: cityId,
+			},
+				function () {
+					$("#MainLogo").slideUp();
+					$(".announcement").slideUp();
+					$(".PreLoader").fadeOut(200);
+					$(".search-result").addClass("hide");
+
+					$(".collapsible-header").attrchange({
+						trackValues: true,
+						callback: function (event) {
+							if (event.attributeName.toLowerCase() == "style" && event.newValue.toLowerCase().replace(" ", "").includes('display:none')) {
+								$(".collapsible-header").css("display", "block");
+							}
+						}
+					});
+					//show item header with effect
+					$(".collapsible-header").fadeOut("100", function () {
+						$(this).removeClass("blue lighten-4");
+					});
+					$(".home-tabs").show();
+				});
+			}
+		}
+
+		$(function () {
+			//setup before functions
+			var typingTimer;                //timer identifier
+			var doneTypingInterval = 1000;  //time in ms, 5 second for example
+			var $SearchInput = $('#SearchTerm');
+
+            //on keyup, start the countdown
+			$SearchInput.keyup(function () {
+				var searchTerm = $SearchInput.val();
+				if (searchTerm.length > 0) {
+					$(".btn-close-search").show();
+				}
+				else {
+					$(".btn-close-search").hide();
+					$(".search-result").slideUp();
+				}
+				$(".search-result").removeClass("hide");
+
+                clearTimeout(typingTimer);
+				typingTimer = setTimeout(startSearch, doneTypingInterval);
+            });
+
+            //on keydown, clear the countdown
+            $SearchInput.keydown(function () {
+				clearTimeout(typingTimer);
+			});
+
+            //user is "finished typing," do something
+			function startSearch()
+			{
+				var searchTerm = $SearchInput.val();
+				if (searchTerm.length > 1) {
+					var cityId = $("#FilterCity").val();
+
+                    $.ajax({
+                        url: '/Home/Search',
+						data: { 'SearchTerm': searchTerm, 'CityId': cityId },
+                        datatyoe: 'json',
+						type: 'POST',
+						beforeSend: function () {
+							$(".search-result").empty();
+							$(".search-result").append($("<p>", {
+								class: "center grey-text text-lighten-1", text: "در  حال جستجو"
+							}));
+							$(".search-result").show();
+						},
+						success: function (data) {
+							$(".search-result").slideUp();
+							var $list = $("<ul>", { class : 'search-results'});
+							$.each(data.clinics, function (i, item) {
+								var $li = $("<li>").append($("<a>", { href: '/Clinic/Details/' + item.id, text: item.title }));
+								$list.append($li);
+							});
+
+							$.each(data.doctors, function (i, item) {
+								var $li = $("<li>").append($("<a>", { class: "sri-doctor", href: '#' + item.doctorId, text: item.firstName + ' ' + item.lastName }));
+								$list.append($li);
+							});
+
+							if (data.clinics.length == 0 && data.doctors.length == 0) {
+								$list = $("<p>", {
+									class: "center grey-text text-lighten-1", text: "موردی یافت نشد." });
+							}
+
+							$(".search-result").empty();
+							$(".search-result").append($list);
+							$(".search-result").slideDown();
+                        }
+                    });
+
+                    //$("#CustomerName").val(searchTerm);
+                }
+                else {
+                    $(".search-results").hide();
+				}
+			}
+
+			$(".home-tabs").hide();
+		});
+
+		$(".btn-close-search").click(function () {
+			$('#SearchTerm').val("");
+			$(".search-result").slideUp();
+			//$("#SearchResult").empty();
+			$(".btn-close-search").hide();
+		});
+
+		$(".search-result").delegate(".sri-doctor", "click", function () {
+			var txt = $(this).text();
+			$('#SearchTerm').val(txt);
+			$(".btn-search").click();
+		});
+
+		$("#VisitList").delegate(".doctor-item", "click", function (e) {
+			var $this = $(this);
+			var doctorId = $this.attr("data-id");
+			//var clinicId = $("#FilterClinic").val();
+			$("#SelectedDoctorId").val(doctorId);
+
+			//$(".doctor-item").mouseup(function (e) {
+			var container = $this.find(".collapsible-body");
+			// if the target of the click isn't the container nor a descendant of the container
+			if (!container.is(e.target) && container.has(e.target).length === 0) {
+				$(".doctor-item .btn-expand .material-icons").each(function (i, item) {
+					$(item).removeClass("rotated");
+				});
+				$(".doctor-description").hide();
+				$(".doctor-description-summary").show();
+				if ($this.hasClass("active")) {
+					//console.log("$this is active");
+				}
+				else {
+					$(".collapsible-body").empty();
+					$(this).find(".collapsible-body").append($("<div>", { class: 'progress' }).append($('<div>', { class: 'indeterminate' })));
+					//var doctorId = $(this).attr("data-id");
+					//var clinicId = $("#FilterClinic").val();
+					//if (!clinicId) {
+					//	clinicId = $("#ClinicIdFilter").val();
+					//}
+					//var serviceTypeId = $("#ServiceDetails").attr("data-serviceTypeId");
+
+					$(this).find(".collapsible-body").load("/Home/GetDoctorClinics/",
+						{
+							id: doctorId,
+						}, function () {
+							$("#mpdatepicker-modal").remove();
+
+							//$('html, body').animate({
+							//	scrollTop: ($(".doctor-item.active").offset().top)
+							//}, 500);
+
+							$(".schedule-item .number").each(function (i, item) {
+								$(item).text(convertToPersianNumber($(item).text()));
+							});
+
+							$('.collection').find(".date-text").each(function (i, item) {
+								$(item).text(getLongDate($(item).text()));
+							});
+						});
+					$(this).find(".btn-expand .material-icons").toggleClass("rotated");
+					$(this).find(".doctor-description").slideDown();
+					$(this).find(".doctor-description-summary").hide();
+
+
+					//$(this).find(".date-text").each(function (i, item) {
+					//    new persianDate([1396, 6, 17]).toLocale('fa').format('MMMM');
+					//});
+					//$(this).find(".collapsible-body").focus();
+				}
+			}
+		});
+
+		$("#VisitList").delegate(".doctor-clinics li", "click", function (e) {
+			if ($(e.target).hasClass('btn-show-schedule')) {
+				$(this).addClass("active");
+				GetDoctorClinicSchedule($(this));
+				$(this).find(".clinic-body").slideUp();
+			}
+			else if ($(e.target).hasClass('clinic-body') || $(e.target).parents().hasClass('clinic-body') || $(e.target).hasClass('doctor-schedule') || $(e.target).parents().hasClass('doctor-schedule')) {
+
+			}
+			else {
+				if ($(this).hasClass("active")) {
+					$(this).removeClass("active");
+					$(this).find(".clinic-body").slideUp();
+				}
+				else {
+					$(this).addClass("active");
+					$(this).find(".clinic-body").slideDown();
+				}
+				$(this).find(".doctor-schedule").slideUp();
+			}
+		});
+
+		//$("#VisitList").delegate(".btn-show-schedule", "click", function () {
+		//	var $this = $(this);
+		//	$(".doctor-clinics .doctor-schedule").slideUp();
+		//	$this.find(".doctor-schedule").slideUp();
+		//});
+
+		function GetDoctorClinicSchedule($this) {
+			$this.find(".doctor-schedule").empty();
+			$this.find(".doctor-schedule").append('<div class="progress"><div class="indeterminate"></div></div>');
+			$this.find(".doctor-schedule").slideDown();
+
+			var clinicId = $this.attr("data-clinicid");
+			var doctorId = $this.parents(".doctor-item").attr("data-id");
+            console.log("home: Index")
+            console.log(clinicId);
+            console.log(doctorId);
+            GetClinicInsurances(clinicId, doctorId);
+			$this.find(".doctor-schedule").load("/Home/GetDoctorSchedule/",
+				{
+					clinicId: clinicId,
+					doctorId: doctorId,
+					//serviceTypeId: serviceTypeId
+				}, function () {
+					$("#mpdatepicker-modal").remove();
+
+					$('html, body').animate({
+						scrollTop: ($(".doctor-item.active").offset().top)
+					}, 500);
+
+					$(".schedule-item .number").each(function (i, item) {
+						$(item).text(convertToPersianNumber($(item).text()));
+					});
+
+					//var chooseAppointmentEnabled = $("#chooseAppointmentEnabled").val();
+					//if (chooseAppointmentEnabled == "True") {
+					//    $(".show-calendar").removeClass("hide");
+					//}
+
+					$('.collection').find(".date-text").each(function (i, item) {
+						$(item).text(getLongDate($(item).text()));
+					});
+				});
+			$(this).find(".btn-expand .material-icons").toggleClass("rotated");
+			$(this).find(".doctor-description").slideDown();
+			$(this).find(".doctor-description-summary").hide();
+		}
+
+		function findByDate(dateFa, myArray) {
+			for (var i = 0; i < myArray.length; i++) {
+				if (myArray[i].dateFa === dateFa) {
+					return myArray[i];
+				}
+			}
+		}
+
+		function clickDateItem(element) {
+			if ($(element).hasClass("green")) {
+				clickScheduleItem(element);
+			}
+			else if ($(element).hasClass("red")) {
+				//Materialize.toast('ظرفیت نوبت برای این تاریخ تکمیل است', 2000);
+			}
+			else {
+				//Materialize.toast('پزشک مورد نظر در این روز حضور ندارد، لطفا روز دیگری انتخاب نمایید', 2000);
+			}
+		}
+
+		function clickScheduleItem(element) {
+			var doctorId = $("#SelectedDoctorId").val();
+			if (doctorId) {
+				var forwardDay = $("#ListItem-" + doctorId).attr("data-forward-day");
+				//var dayDifferance = $(element).parents(".schedule-item").attr("data-day-difference");
+				var clinicId = $("#FilterClinic").val();
+				if (!clinicId) {
+					clinicId = $("#ClinicIdFilter").val();
+				}
+
+				//var doctorId = $(element).attr("data-doctorId");
+				var doctorName = $(element).attr("data-doctorName");
+				var shiftId = $(element).attr("data-shiftId");
+				var weekDay = $(element).attr("data-weekday").replace(/\ /g, '-');
+				var weekDayId = $(element).attr("data-weekDayId");
+				var reserveDate = $(element).attr("data-gdate").replace(/\//g, '-');;
+				var datefa = $(element).attr("title").replace(/\//g, '-');;
+				var printNote = $(element).attr("data-print-note").toString().trim().replace(/\ /g, '-');
+				var emptySlots = $(element).attr("data-emptySlots");
+				var lastId = $(element).attr("data-lastId");
+
+				$("#ReserveModal .modal-content").empty();
+				$("#ReserveModal .modal-content").append('<div class="center mt-100"><div class="preloader-wrapper big active"><div class="spinner-layer spinner-blue-only">' +
+					'<div class="circle-clipper left"><div class="circle"></div></div> <div class="gap-patch"><div class="circle"></div>' +
+					'</div> <div class="circle-clipper right"><div class="circle"></div></div></div></div></div >');
+
+				$('#ReserveModal').modal({
+					dismissible: false, // Modal can be dismissed by clicking outside of the modal
+				});
+				$("#ReserveModalContent").load("/Home/ReserveDoctorTime/?clinicId=" + clinicId
+					+ "&doctorId=" + doctorId + "&shiftId=" + shiftId + "&reserveDate=" + reserveDate
+					+ "&reserveDateFa=" + datefa + "&weekDay=" + weekDay + "&doctorName=" + doctorName
+					+ "&printNote=" + printNote + "&weekDayId=" + weekDayId);
+				$('#ReserveModal').modal('open');
+				$("#SubmitReserve").removeClass("confirmed");
+				$("#EditReserve").hide();
+				$("#SubmitReserve").text("ادامه");
+			}
+		}
+
+		function GetAppointmentSchedule() {
+			$(".PreLoader").show();
+			$("#AppointmentCalendar").hide();
+
+			var clinicId = $("#FilterClinic").val();
+			var doctorId = $("#SelectedDoctorId").val();
+
+			$.get("/Home/GetAppointmentSchedule", { clinicId: clinicId, doctorId: doctorId }, function (data) {
+				$(".PreLoader").fadeOut(200);
+				$(".schedule").slideUp('100');
+
+				$.each(data, function (i, item) {
+					if (item.worktimeTypeId > 0) {
+						var $dateCell = $("td[title|='" + item.dateFa + "']");
+
+						$dateCell.attr("data-worktimetypeId", item.worktimeTypeId);
+						$dateCell.attr("data-shiftId", item.shiftId);
+						$dateCell.attr("data-weekDayId", item.weekDayId);
+						$dateCell.attr("data-weekday", item.weekDay.replace(/\ /g, '-'));
+						$dateCell.attr("data-doctorId", item.doctorId);
+						$dateCell.attr("data-doctorName", item.doctorName.replace(/\ /g, '-'));
+						$dateCell.attr("data-print-note", item.printNote.replace(/\ /g, '-'));
+						$dateCell.attr("data-emptySlots", item.emptySlots);
+						$dateCell.attr("data-lastId", item.lastId);
+						if (item.emptySlots > 0) {
+							$("td[title|='" + item.dateFa + "']").removeClass("disabled");
+                            $("td[title|='" + item.dateFa + "']").addClass("green accent-2");
+						}
+						else {
+							$("td[title|='" + item.dateFa + "']").addClass("red lighten-3");
+						}
+					}
+				});
+
+				$("#AppointmentCalendar").slideDown(300);
+			});
+		}
+
+		$(".show-calendar-button").mouseup(function (e) {
+			$(".PreLoader").show();
+			$("#AppointmentCalendar").hide();
+
+			var clinicId = $("#FilterClinic").val();
+			var doctorId = $("#SelectedDoctorId").val();
+
+			$.get("/Home/GetAppointmentSchedule", { clinicId: clinicId, doctorId: doctorId }, function (data) {
+				$(".PreLoader").fadeOut(200);
+				$(".schedule").slideUp('100');
+				//$("#AppointmentDate").val("");
+				//$("#AppointmentDate").focus();
+				//$("#mpdatepicker-block table td").each(function (i, item) {
+				//});
+
+				var mpdatepicker = $("#AppointmentDate").mpdatepicker({
+					cellClass: "disabled",
+					onCellClick: clickDateItem,
+					updateScheduleCallback: GetAppointmentSchedule,
+					showToday: false,
+					showClear: false
+				});
+				mpdatepicker.attachCal("#AppointmentCalendar");
+
+				$.each(data, function (i, item) {
+					if (item.worktimeTypeId > 0) {
+						var $dateCell = $("td[title|='" + item.dateFa + "']");
+
+						$dateCell.attr("data-worktimetypeId", item.worktimeTypeId);
+						$dateCell.attr("data-shiftId", item.shiftId);
+						$dateCell.attr("data-doctorId", item.doctorId);
+						$dateCell.attr("data-weekDayId", item.weekDayId);
+						$dateCell.attr("data-weekday", item.weekDay.replace(/\ /g, '-'));
+						$dateCell.attr("data-doctorName", item.doctorName.replace(/\ /g, '-'));
+						$dateCell.attr("data-print-note", item.printNote.replace(/\ /g, '-'));
+						$dateCell.attr("data-emptySlots", item.emptySlots);
+						$dateCell.attr("data-lastId", item.lastId);
+
+						if (item.emptySlots > 0) {
+							$("td[title|='" + item.dateFa + "']").removeClass("disabled");
+                            $("td[title|='" + item.dateFa + "']").addClass("green accent-2");
+						}
+						else {
+							$("td[title|='" + item.dateFa + "']").addClass("red lighten-3");
+						}
+					}
+				});
+
+				$("#AppointmentCalendar").slideDown(300);
+			});
+		});
+
+		$("#VisitList").delegate(".schedule-item-button", "click", function () {
+			var forwardDay = parseInt($(this).parents(".doctor-item").attr("data-forward-day"));
+			var dayDifferance = parseInt($(this).parents(".schedule-item").attr("data-day-difference"));
+			var clinicId = $(this).parents("li.clinic-item").attr("data-clinicid");
+
+			if (dayDifferance > forwardDay) {
+                M.toast({ html: 'درحال حاضر این روز قابل دریافت نیست، لطفا جهت رزرو در روزهای آینده مراجعه نمایید', displayLength: 3000 });
+				//Materialize.toast('درحال حاضر این روز قابل دریافت نیست، لطفا جهت رزرو در روزهای آینده مراجعه نمایید', 5000);
+			}
+			else {
+				var doctorId = $(this).attr("data-doctorId");
+				var shiftId = $(this).attr("data-shiftId");
+				var weekDay = $(this).attr("data-weekday").replace(' ', '-');
+				var weekDayId = $(this).attr("data-weekDayId");
+				var serviceTypeId = $(this).attr("data-serviceTypeId");
+				var reserveDate = $(this).parents(".schedule-item").attr("data-date");
+				var datefa = $(this).parents(".schedule-item").attr("data-datefa");
+				var doctorName = $(this).parents(".doctor-item").find(".doctor-name").text().trim().replace(/\ /g, '-');
+				var printNote = $(this).parents(".schedule-item").attr("data-print-note").toString().trim().replace(/\ /g, '-');
+
+				$("#ReserveModal .modal-content").empty();
+				$("#ReserveModal .modal-content").append('<div class="center mt-100"><div class="preloader-wrapper big active"><div class="spinner-layer spinner-blue-only">' +
+					'<div class="circle-clipper left"><div class="circle"></div></div> <div class="gap-patch"><div class="circle"></div>' +
+					'</div> <div class="circle-clipper right"><div class="circle"></div></div></div></div></div >');
+
+				$("#ReserveModal .modal-content").load("/Home/ReserveDoctorTime/?clinicId=" + clinicId
+					+ "&doctorId=" + doctorId + "&shiftId=" + shiftId + "&reserveDate=" + reserveDate
+					+ "&reserveDateFa=" + datefa + "&weekDay=" + weekDay + "&doctorName=" + doctorName
+					+ "&printNote=" + printNote + "&serviceTypeId=" + serviceTypeId + "&weekDayId=" + weekDayId);
+				$('#ReserveModal').modal({
+					dismissible: false, // Modal can be dismissed by clicking outside of the modal
+				});
+				$('#ReserveModal').modal('open');
+				$("#SubmitReserve").removeClass("confirmed");
+				$("#EditReserve").hide();
+				$("#SubmitReserve").text("ادامه");
+				$("#SubmitReserve").removeClass("select-appointment");
+				$("#SubmitReserve").removeClass("confirmed");
+				$("#SubmitReserve").removeClass("preview");
+				$("#SubmitReserve").removeClass("selected");
+			}
+		});
+
+		$(".service-list").delegate(".card", "click", function () {
+			var $this = $(this);
+			var id = $this.attr("data-id");
+			$("#ServiceDetails").hide();
+			$("#ServiceDetails").load("/Home/ServicePartial/" + id, function () {
+				$(".service-list").slideUp(200, function () {
+					$("#ServiceDetails").slideDown(500);
+				});
+
+				var serviceTypeId = $this.attr("data-serviceTypeId");
+				var cityId = $("#FilterCity").val();
+				var clinicId = $("#FilterClinic").val();
+
+				$("#ServiceDetails").attr("data-serviceTypeId", serviceTypeId);
+
+				$(".PreLoader").fadeIn(100);
+				$("#DoctorList").load("/Home/GetDoctors/", {
+					CityId: cityId,
+					ClinicId: clinicId,
+					SpecialtyId: 0,
+					LastDrId: 0,
+					DoctorId: 0,
+					serviceTypeId: serviceTypeId
+				}, function () {
+					//$("#VisitList").empty();
+					$(".PreLoader").fadeOut(200);
+					$('#DoctorList').collapsible();
+					$(".collapsible-header").attrchange({
+						trackValues: true,
+						callback: function (event) {
+							if (event.attributeName.toLowerCase() == "style" && event.newValue.toLowerCase().replace(" ", "").includes('display:none')) {
+								$(".collapsible-header").css("display", "block");
+							}
+						}
+					});
+					//show item header with effect
+					$(".collapsible-header").fadeOut("100", function () {
+						$(this).removeClass("blue lighten-4");
+					});
+				});
+			});
+		});
+
+		$(".service-details").delegate(".card-close", "click", function () {
+			$("#ServiceDetails").slideUp(200, function () {
+				$(".service-list").slideDown(500);
+			});
+			$("#ServiceDetails").removeAttr("data-serviceTypeId");
+		});
+
+		$(function () {
+			var clinicTitle = $("#FilterClinic option:selected").text();
+			if (!clinicTitle) {
+				clinicTitle = $("#ClinicTitle").val();
+			}
+			if (clinicTitle) {
+				$(".clinic-title").each(function (i, item) {
+					$(item).text(clinicTitle);
+				});
+			}
+		});
+    </script>
+
+
+
+</body></html>

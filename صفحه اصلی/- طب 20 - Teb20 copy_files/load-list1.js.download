@@ -1,0 +1,182 @@
+﻿function GetCities(CountryId, ChosenClinicId) {
+    $(".PreLoader").show();
+
+    $.post("/Data/GetCities", { CountryId: CountryId }, function (result) {
+        $(".PreLoader").fadeOut(300);
+        //console.log(result.cities);
+        if (result.cities != null && result.cities.length > 0) {
+            var displayText = " انتخاب شهر";
+            if (screen.width < 1270 && screen.width > 600)
+                displayText = "شهر";
+
+            if (ChosenClinicId <= 0) {
+                $('#FilterCity').select2({ data: result.cities, width: '100%', placeholder: displayText, dir: "rtl", searchInputPlaceholder: 'جستجو ...' });
+                $("#FilterCity").parent().show();
+
+                var cityId = getCityId();
+                if (cityId > 0) {
+                    $('#FilterCity').val(cityId); // Select the option with a value of '1'
+                    $('#FilterCity').trigger('change'); // Notify any JS components that the value changed
+                }
+            }
+            //console.log(result.cities);
+            $('#HidCities').val(JSON.stringify(result.cities));
+        }
+        else
+            ToastMessage('شهری جهت کشور انتخابی تعریف نشده است', 3000);
+    });
+}
+//--------------------------
+function GetClinics(CityId) {
+    $(".PreLoader").show();
+
+    ClinicFilterItems_Clear();
+
+    $.post("/Data/GetClinics", { CityId: CityId }, function (result) {
+        $(".PreLoader").fadeOut(300);
+
+        if (result.clinics != null && result.clinics.length > 0) {
+            var displayText = "انتخاب مرکز درمانی";
+            if (screen.width < 1270 && screen.width > 600)
+                displayText = "مرکز درمانی";
+
+            $("#FilterClinic").empty();
+            $("#FilterClinic").append("<option></option>");
+            $('#FilterClinic').select2({ data: result.clinics, width: '100%', placeholder: displayText, dir: "rtl", disabled: false });
+            $("#FilterClinic").parent().show();
+        }
+        else {
+            ToastMessage('هیچ مرکز درمانی در شهر انتخابی تعریف نشده است', 3000);
+            AllWithoutCity();
+        }
+    });
+}
+//--------------------------
+function GetSpecialties(ClinicID) {
+    $(".PreLoader").show();
+
+    SpecialtyFilterItems_Clear();
+
+    $.post("/Data/GetSpecialties", { ClinicID: ClinicID }, function (result) {
+        $(".PreLoader").fadeOut(300);
+
+        if (result.specialities != null && result.specialities.length > 0) {
+            //console.log(result.specialities);
+            $('#FilterSpecialty').empty();
+            $('#FilterSpecialty').select2({
+                allowClear: true,
+                data: result.specialities,
+                width: '100%',
+                dir: "rtl",
+                placeholder: 'انتخاب تخصص',
+                displayText: "انتخاب تخصص",
+                disabled: false
+            });
+            $('#FilterSpecialty').val(null).trigger('change');
+
+            $(".filter-doctor-input").parent().show();
+            $("#FilterSpecialty").parent().show();
+            $(".btnFilterBig").parent().show();
+            $(".btnFilterSmall").parent().show();
+        }
+        else {
+            $(".filter-doctor-input").val("");
+            //$(".filter-doctor-input").parent().hide();
+
+            //$(".btnFilterBig").parent().hide();
+            //$(".btnFilterSmall").parent().hide();
+            $("#ShowMoreList").hide();
+
+            ToastMessage('تخصصی جهت رزرو در این مرکز درمانی وجود ندارد', 2000);
+        }
+    });
+}
+//--------------------------
+function GetBanks() {
+    $("#HidBanks").val('!');
+
+    $.post("/Data/GetBanks", function (result) {
+        if (result.banks != null && result.banks.length > 0)
+            $("#HidBanks").val(JSON.stringify(result.banks));
+        else
+            $("#HidBanks").val('');
+    });
+}
+
+//--------------------------
+function GetClinicInsurances(ClinicID, DocId) {
+    return;
+    $('#HidInsurances').val('!');
+    $.post("/Data/GetClinicInsurances", { ClinicID: ClinicID, DocId: DocId }, function (result) {
+      
+        if (result.insurances != null && result.insurances.length > 0) {
+            $('#HidInsurances').val(JSON.stringify(result.insurances).replace(/\"title"/g, '"text"'));
+        }
+        else {
+            $('#HidInsurances').val('');
+            ToastMessage('بیمه ای جهت مرکز انتخابی تعریف نشده است! لطفا بعدا مراجعه نمایید', 2000);
+        }
+    });
+}
+
+//----------------------------------------------
+//-----------------توابع کمکی------------------
+//----------------------------------------------
+function ClinicFilterItems_Clear() {
+    $("#FilterClinic").empty();
+    $("#FilterClinic").append("<option></option>");
+    $('#FilterClinic').select2({ width: '100%', placeholder: "انتخاب مرکز درمانی", dir: "rtl", disabled: true });
+    //$("#FilterClinic").parent().show();
+    //$("#FilterClinic").parent().hide();
+
+    SpecialtyFilterItems_Clear();
+}
+//--------------------------
+function SpecialtyFilterItems_Clear() {
+    $("#FilterSpecialty").empty();
+    $("#FilterSpecialty").append("<option></option>");
+    $('#FilterSpecialty').select2({ width: '100%', placeholder: "انتخاب تخصص", dir: "rtl", disabled: true });
+    //$("#FilterSpecialty").parent().show();
+}
+//--------------------------
+function InitFilterItems_Clear() {
+    $("#FilterCity").empty();
+    $("#FilterCity").append("<option></option>");
+    $('#FilterCity').select2({ width: '100%', placeholder: "انتخاب شهر", dir: "rtl" });
+    //$("#FilterCity").parent().hide();
+    $("#HidCities").val("");
+
+    AllWithoutCity();
+}
+//--------------------------
+function AllWithoutCity() {
+    $('#VisitList').empty();
+
+    $(".DoctorListFoundCount").empty();
+
+    $("#HidFilterLastDrID").val("0");
+    $("#HidFilterFoundRows").val("0");
+
+    $("#FilterClinic").empty();
+    //$("#FilterClinic").parent().hide();
+
+    $("#FilterSpecialty").empty();
+    $("#FilterSpecialty").append("<option></option>");
+    $('#FilterSpecialty').select2({ width: '100%', placeholder: "انتخاب تخصص", dir: "rtl", disabled: true });
+
+    $(".filter-doctor-input").val("");
+    //$(".filter-doctor-input").parent().hide();
+
+    //$(".btnFilterBig").parent().hide();
+    //$(".btnFilterSmall").parent().hide();
+
+    $("#ShowMoreList").hide();
+}
+//--------------------------
+function BeforeSearchClear() {
+    $('#VisitList').empty();
+    $(".DoctorListFoundCount").empty();
+
+    $("#HidFilterLastDrID").val("0");
+    $("#HidFilterFoundRows").val("0");
+}

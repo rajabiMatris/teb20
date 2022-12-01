@@ -1,0 +1,33 @@
+﻿function  GetAttentionItem(attention) {
+    return '<div class="chip attentions_icon_wr z-depth-1 deep-orange lighten-5">' +
+        //'<i class="material-icons deep-orange darken-3 circle right z-depth-1">priority_high</i>' +
+        attention + '</div>';
+}
+
+function  GetListItemWrraper(DrId) {
+    return '<li id="ListItem' + DrId + '">' +
+        '<div class="collapsible-header right-align blue lighten-4">' +
+        '<div class="progress col s12">' +
+        '<div class="indeterminate col s12"></div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="collapsible-body blue-grey lighten-5">' +
+        '<div class="progress col s12">' +
+        '<div class="indeterminate col s12"></div>' +
+        '</div>' +
+        '</div >' +
+        '</li>';
+}
+
+function  GetPersonItemWr(id, title) {
+    return '<div class="row">' +
+        '<a class="col m4 s12 center-align push-m4 indigo lighten-1 waves-effect waves-light btn" data_val_id="' + id + '">' +
+        title + '</a></div>';
+}
+
+function  GetBankItemWr(id, title, logoUrl, bankPayId, FormSelector) {
+    return '<li><a data-id="' + id + '" data-pay-id="' + bankPayId + '" style="display:block;" data-form-selector="' + FormSelector +'" OnClick=" ChangeBank(this)">' +
+        '<img src="' + logoUrl + '" />' +
+        '<span class="noselect">' + title + '</span >' +
+        '</a></li>';
+}
