@@ -1,14 +1,15 @@
 ﻿@font-face {
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     font-style: normal;
     font-weight: 400;
-    src: url('../Content/materialize_fonts/MaterialIcons-Regular.eot');
+    src: url("../Content/materialize_fonts/MaterialIcons-Regular.eot");
     /* For IE6-8 */
-    src: url('../Content/materialize_fonts/MaterialIcons-Regular.woff') format('woff'), url('../Content/materialize_fonts/MaterialIcons-Regular.ttf') format('truetype');
+    src: url("../Content/materialize_fonts/MaterialIcons-Regular.woff") format("woff"),
+        url("../Content/materialize_fonts/MaterialIcons-Regular.ttf") format("truetype");
 }
 
 .material-icons {
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
@@ -28,27 +29,28 @@
     /* Support for Firefox. */
     -moz-osx-font-smoothing: grayscale;
     /* Support for IE. */
-    font-feature-settings: 'liga';
+    font-feature-settings: "liga";
 }
 
 @font-face {
-    font-family: 'YekanNumbers';
+    font-family: "YekanNumbers";
     src: url("fonts/yekannumbers-regular.eot");
-    src: url("fonts/yekannumbers-regular.woff") format('woff'), url("fonts/yekannumbers-regular.ttf") format('truetype');
+    src: url("fonts/yekannumbers-regular.woff") format("woff"), url("fonts/yekannumbers-regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Yekan';
+    font-family: "Yekan";
     src: url("fonts/Yekan/Yekan.eot");
-    src: url("fonts/Yekan/Yekan.woff") format('woff'), url("fonts/Yekan/Yekan.ttf") format('truetype'), url("fonts/Yekan/Yekan.svg") format("svg");
+    src: url("fonts/Yekan/Yekan.woff") format("woff"), url("fonts/Yekan/Yekan.ttf") format("truetype"),
+        url("fonts/Yekan/Yekan.svg") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 html {
-    font-family: 'Yekan', Verdana, Tahoma;
+    font-family: "Yekan", Verdana, Tahoma;
     height: 100%;
     scroll-behavior: smooth;
 }
@@ -66,7 +68,7 @@ a,
 p,
 button,
 input {
-    font-family: 'Yekan', Verdana, Tahoma;
+    font-family: "Yekan", Verdana, Tahoma;
 }
 
 header .LogoBand {
@@ -91,7 +93,6 @@ header .LogoBand ul a {
 }
 
 @media only screen and (min-width: 601px) {
-
     nav,
     nav .nav-wrapper i,
     nav a.button-collapse,
@@ -291,7 +292,6 @@ footer {
     display: block;
 }
 
-
 .big-locations {
     padding-top: 30px !important;
     display: block;
@@ -312,16 +312,17 @@ footer {
     font-size: 18px;
     margin: 10px 10px 20px;
     padding-bottom: 10px;
-    border-bottom: #00acc166 1px solid;
-    color: #00acc1;
+    border-bottom: #b8c1c2 1px solid;
+    color: #062561;
 }
 
 .fav-clinic-item {
     width: 100%;
-    height: 200px;
+    height: 185px;
     background-color: #fff;
     color: #050505;
     border-radius: 1em;
+    -webkit-border-radius: 1em;
     margin: 0.5em 0;
     overflow: hidden;
 }
@@ -344,10 +345,26 @@ footer {
     text-align: right;
 }
 
-.fav-clinic-item h4 {
+.fav-clinic-item .fav-clinic-info h4 {
     font-size: 16px;
     font-weight: bold;
-    margin-top: 0;
+    line-height: 120%;
+    max-height: 3.6em;
+    overflow: hidden;
+    margin: 0 !important;
+}
+
+.fav-clinic-item .fav-clinic-info p {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 120%;
+    max-height: 2.4em;
+    overflow: hidden;
+    margin: 0.6em 0 0 0 !important;
+}
+
+.fav-clinic-item p * {
+    font-size: inherit;
 }
 
 .fav-clinic-item .address {
@@ -379,7 +396,8 @@ footer {
         position: relative;
         display: inline-block;
     }*/
-.doctor-item {}
+.doctor-item {
+}
 
 .doctor-item .collapsible-header {
     position: relative;
@@ -396,9 +414,9 @@ footer {
 
 .doctor-item .btn-expand .material-icons {
     margin-left: 0;
-    -webkit-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .doctor-item .btn-expand .material-icons.rotated {
@@ -468,16 +486,16 @@ footer {
     position: relative;
 }
 
-.collapsible.popout>li.doctor-item {
+.collapsible.popout > li.doctor-item {
     margin-bottom: 0 !important;
     box-shadow: none;
 }
 
-.collapsible.popout>li.doctor-item>.collapsible-header {
+.collapsible.popout > li.doctor-item > .collapsible-header {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.collapsible.popout>li.doctor-item.active {
+.collapsible.popout > li.doctor-item.active {
     margin: 0;
 }
 
@@ -485,7 +503,8 @@ footer {
     display: none;
 }
 
-ul.doctor-clinics {}
+ul.doctor-clinics {
+}
 
 ul.doctor-clinics li {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -494,6 +513,8 @@ ul.doctor-clinics li {
     padding: 10px;
     background-color: rgba(255, 255, 255, 1);
     cursor: pointer;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
 }
 
 ul.doctor-clinics span.title {
@@ -508,6 +529,10 @@ ul.doctor-clinics li .clinic-header {
     display: block;
     clear: both;
     overflow: hidden;
+}
+
+ul.doctor-clinics li .clinic-header .waves-effect {
+    margin: 0.2em 0;
 }
 
 ul.doctor-clinics li .clinic-body {
@@ -536,17 +561,8 @@ ul.doctor-clinics li .doctor-schedule {
     display: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-.schedule {}
+.schedule {
+}
 
 .schedule .schedule-item {
     position: relative;
@@ -564,7 +580,7 @@ ul.doctor-clinics li .doctor-schedule {
 }
 
 .schedule .schedule-item .date-text {
-    font-family: 'Yekan';
+    font-family: "Yekan";
 }
 
 .schedule h5 {
@@ -589,10 +605,6 @@ ul.doctor-clinics li .doctor-schedule {
     width: 130px;
 }
 
-
-
-
-
 .collection .collection-item.avatar {
     min-height: 60px;
 }
@@ -614,15 +626,16 @@ ul.doctor-clinics li .doctor-schedule {
     color: #ef5350;
 }
 
-.input-field input.error {}
+.input-field input.error {
+}
 
 .form-group .error {
     font-size: 12px;
     color: #ef5350;
 }
 
-
-.reserve-container {}
+.reserve-container {
+}
 
 .reserve-container h4 {
     font-size: 24px;
@@ -652,25 +665,6 @@ ul.doctor-clinics li .doctor-schedule {
     color: #721c24;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*----------------------------------------
 	Breadcrumb
 ------------------------------------------*/
@@ -694,11 +688,11 @@ ul.doctor-clinics li .doctor-schedule {
     list-style: none;
 }
 
-#breadcrumbs-wrapper .breadcrumbs>li {
+#breadcrumbs-wrapper .breadcrumbs > li {
     display: inline-block;
 }
 
-#breadcrumbs-wrapper .breadcrumbs>li+li:before {
+#breadcrumbs-wrapper .breadcrumbs > li + li:before {
     padding: 0 5px;
     color: #bdbdbd;
     content: "/\00a0";
@@ -725,7 +719,8 @@ ul.doctor-clinics li .doctor-schedule {
 /*----------------------------------------
 	Survey
 ------------------------------------------*/
-.survey-page {}
+.survey-page {
+}
 
 .survey-list.collection .collection-header h4 {
     font-size: 16px;
@@ -804,8 +799,8 @@ ul.doctor-clinics li .doctor-schedule {
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     background-color: #0fabc6;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .club-links li a:hover:before {
@@ -825,7 +820,8 @@ ul.doctor-clinics li .doctor-schedule {
 }
 
 .club-card {
-    background: url(images/customers.svg), linear-gradient(45deg, #9d04ff73, #8bddf100), linear-gradient(45deg, #0fabc6, #1bc1dd);
+    background: url(images/customers.svg), linear-gradient(45deg, #9d04ff73, #8bddf100),
+        linear-gradient(45deg, #0fabc6, #1bc1dd);
     background-repeat: no-repeat;
     background-position: 0 100%;
     -webkit-background-size: auto 50%, cover, cover;
@@ -1011,7 +1007,8 @@ ul.doctor-clinics li .doctor-schedule {
     margin: 1em 0;
 }
 
-.card-action .card-detail-item i {}
+.card-action .card-detail-item i {
+}
 
 .card-detail-item.clinic-specialities {
     font-size: 1.1em;
@@ -1051,15 +1048,15 @@ img.info-icon {
 }
 
 .clinic-filters {
-    margin: 0 .75rem;
+    margin: 0 0.75rem;
     margin-bottom: 20px;
-    padding: .75rem;
+    padding: 0.75rem;
     /*max-width: 240px;*/
     /*width:100%;*/
 }
 
 .clinic-filters .input-field {
-    margin: 0 .75rem;
+    margin: 0 0.75rem;
     position: relative;
 }
 
@@ -1077,7 +1074,7 @@ img.info-icon {
 .filter-list {
     max-height: 220px;
     position: relative;
-    overflow-y: auto;
+    overflow-y: auto !important;
 }
 
 /* width */
@@ -1114,11 +1111,6 @@ img.info-icon {
 .filter-list .collection-item a:hover {
     color: #00acc1;
 }
-
-
-
-
-
 
 .clinic-page {
     margin-bottom: 20px;
@@ -1171,17 +1163,18 @@ img.info-icon {
     color: #9b9b9b;
 }
 
-.clinic-shortcuts {}
+.clinic-shortcuts {
+}
 
-.clinic-shortcuts .row .col {}
+.clinic-shortcuts .row .col {
+}
 
-.clinic-shortcuts .row .col:nth-child(3n+3) {
+.clinic-shortcuts .row .col:nth-child(3n + 3) {
     /*padding-left: 0.75rem;*/
 }
 
-
-
-.clinic-shortcut {}
+.clinic-shortcut {
+}
 
 .clinic-shortcut .card-action {
     padding: 16px 10px;
@@ -1254,7 +1247,7 @@ img.info-icon {
     background-color: #26a69a;
     color: #fff;
     text-align: center;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     display: inline-block;
     line-height: 36px;
     padding: 1px 10px;
@@ -1324,7 +1317,8 @@ img.info-icon {
     display: inline-block;
 }
 
-.section-services {}
+.section-services {
+}
 
 .section-services .collection {
     margin-top: 0;
@@ -1430,7 +1424,6 @@ img.info-icon {
     display: block;
 }
 
-
 @media screen and (max-width: 480px) {
     .collection .collection-item.service-item.avatar {
         min-height: 60px;
@@ -1488,8 +1481,6 @@ h2.sct-title {
     margin-bottom: 0;
     white-space: nowrap;
 }
-
-
 
 .doctor-filter .filter-item {
     position: relative;
@@ -1559,7 +1550,6 @@ h2.sct-title {
     background-color: #4db6ac;
 }
 
-
 .section-preloader {
     display: none;
     width: 100%;
@@ -1584,7 +1574,8 @@ h2.sct-title {
     border-left: 1px solid rgba(232, 245, 233, 0.4);
 }
 
-.posts-page {}
+.posts-page {
+}
 
 .posts-page .section-preloader {
     display: none;
@@ -1637,7 +1628,8 @@ h2.sct-title {
     overflow: hidden;
 }
 
-.card.post-card .card-image a {}
+.card.post-card .card-image a {
+}
 
 .card.post-card .card-image img {
     object-fit: cover;
@@ -1692,7 +1684,8 @@ h2.sct-title {
     display: none;
 }
 
-.selected-category {}
+.selected-category {
+}
 
 .category-list {
     text-align: center;
@@ -1731,9 +1724,12 @@ h2.sct-title {
     margin-bottom: 0;
 }
 
-.doctor-page {}
+.doctor-page {
+}
 
-.doctor-page .doctor-list {}
+.doctor-page .doctor-list {
+    box-shadow: none;
+}
 
 .doctor-page .doctor-item {
     display: block;
@@ -1749,7 +1745,8 @@ h2.sct-title {
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
 }
 
-.doctor-page .doctor-info {}
+.doctor-page .doctor-info {
+}
 
 .doctor-item .doctor-item-rating {
     position: absolute;
@@ -1843,14 +1840,15 @@ h2.sct-title {
     transition: all 0.5s;
 }
 
-
-.reserve-section {}
+.reserve-section {
+}
 
 .reserve-section .reserve-date {
     font-size: 1.4em;
 }
 
-.reserve-container {}
+.reserve-container {
+}
 
 .reserve-container h4 {
     font-size: 24px;
@@ -1945,10 +1943,6 @@ h2.sct-title {
     margin-top: 0;
 }
 
-
-
-
-
 fieldset.alert {
     border: 1px dashed #ffb74d;
     background-color: #fff3e0;
@@ -2019,7 +2013,7 @@ table.reserve-info-table {
     border-spacing: 0;
     display: block;
     position: relative;
-    font-family: 'Yekan';
+    font-family: "Yekan";
 }
 
 table.reserve-info-table thead {
@@ -2066,7 +2060,6 @@ table.reserve-info-table td {
     font-size: 18px;
 }
 
-
 .bank-item {
     -webkit-filter: grayscale(100%);
     /* Safari 6.0 - 9.0 */
@@ -2105,14 +2098,15 @@ table.reserve-info-table td {
     margin-bottom: 20px;
 }
 
-.reserve-result {}
+.reserve-result {
+}
 
 .alert {
     position: relative;
-    padding: .75rem 1.25rem;
+    padding: 0.75rem 1.25rem;
     margin-bottom: 1rem;
     border: 1px solid transparent;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
 }
 
 .alert-success {
@@ -2185,7 +2179,7 @@ table.reserve-info-table td {
         width: 100%;
     }
 
-    .container>.mt-60 {
+    .container > .mt-60 {
         margin-top: 0;
     }
 }
@@ -2305,7 +2299,6 @@ table.reserve-info-table td {
     }
 }
 
-
 .btn-card {
     margin: 10px 25px;
     padding: 10px;
@@ -2362,8 +2355,8 @@ table.reserve-info-table td {
 
 input.input-validation-error,
 input.input-validation-error:not([type]),
-input[type=text].input-validation-error:not(.browser-default),
-input[type=password].input-validation-error:not(.browser-default) {
+input[type="text"].input-validation-error:not(.browser-default),
+input[type="password"].input-validation-error:not(.browser-default) {
     border-bottom-color: #ef5350;
 }
 
@@ -2408,14 +2401,12 @@ p.phonenumber {
     left: 0;
     height: 100%;
     width: 50px;
-    content: '';
+    content: "";
 }
 
 .service-list .card {
     cursor: pointer;
 }
-
-
 
 .service-page {
     margin-bottom: 100px;
@@ -2435,8 +2426,8 @@ p.phonenumber {
     transition: all 1s;
 }
 
-.service-list .card.service-card {}
-
+.service-list .card.service-card {
+}
 
 .card-close {
     position: absolute;
@@ -2445,47 +2436,9 @@ p.phonenumber {
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .service-doctor-list {
     margin: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #ReserveForm .materialize-textarea {
     height: 25px !important;
@@ -2493,7 +2446,8 @@ p.phonenumber {
     height: 100%;
 }
 
-.number {}
+.number {
+}
 
 .number-lg {
     font-size: 1.4em;
@@ -2595,7 +2549,8 @@ p.phonenumber {
         width: 100%;
     }
 
-    .schedule .schedule-item .reserve-full {}
+    .schedule .schedule-item .reserve-full {
+    }
 
     .reserve-info-container .col.m8 {
         border-bottom: 1px solid #80cbc4;
@@ -2615,20 +2570,15 @@ p.phonenumber {
     }
 }
 
-
-
-
-
-
 /*Material Design Css*/
 .btn-small {
     text-decoration: none;
     color: #fff;
     background-color: #26a69a;
     text-align: center;
-    letter-spacing: .5px;
-    -webkit-transition: background-color .2s ease-out;
-    transition: background-color .2s ease-out;
+    letter-spacing: 0.5px;
+    -webkit-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
     cursor: pointer;
 }
 
@@ -2638,8 +2588,8 @@ p.phonenumber {
     font-size: 13px;
 }
 
-input[type=text].valid.error:not(.browser-default),
-input[type=text].error:not(.browser-default):focus:not([readonly]) {
+input[type="text"].valid.error:not(.browser-default),
+input[type="text"].error:not(.browser-default):focus:not([readonly]) {
     box-shadow: 0 1px 0 0 #e57373;
 }
 
@@ -2661,34 +2611,33 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
 
 /* End of Material Design csss*/
 
-@media screen and (max-width : 600px) {
+@media screen and (max-width: 600px) {
     .identity_section .select-wrapper {
         margin-left: 0px !important;
         width: 100% !important;
     }
 }
 
-@media screen and (min-width : 601px) {
-
+@media screen and (min-width: 601px) {
     header .FilterBand .filter-items,
     header .FilterBand .FilterResultDisplay {
         display: block !important;
     }
 }
 
-@media (min-width:600px) and (max-width:670px) {
+@media (min-width: 600px) and (max-width: 670px) {
     .big-locations-icon {
         display: none !important;
     }
 }
 
-@media screen and (max-width : 530px) {
+@media screen and (max-width: 530px) {
     .footer-btns img {
         width: 100px;
     }
 }
 
-@media screen and (max-width : 300px) {
+@media screen and (max-width: 300px) {
     .footer-links {
         display: none;
     }
@@ -2703,7 +2652,7 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
 }
 
 /*------------X Small Size-------------*/
-@media screen and (max-width : 500px) {
+@media screen and (max-width: 500px) {
     .enamad {
         border-radius: 5px;
         background-color: #fafafa40;
@@ -2719,8 +2668,7 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
 }
 
 /*------------X Small Size-------------*/
-@media screen and (max-width : 360px) {
-
+@media screen and (max-width: 360px) {
     /*#toast-container {
         right: 10% !important;
         left: 10% !important;
@@ -2746,7 +2694,6 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
         /*padding-Top: 20px;*/
     }
 
-
     /*.btn_get_nobat {
         position: absolute;
         bottom: 0px;
@@ -2764,7 +2711,7 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
         padding-right: 0.75rem !important;
     }
 
-    .attentions_wr>div {
+    .attentions_wr > div {
         padding-top: 15px !important;
         /*padding-right: 0px !important;*/
         margin-top: 0.5rem;
@@ -2825,7 +2772,7 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     }*/
 }
 
-@media (min-width:480px) and (max-width:600px) {
+@media (min-width: 480px) and (max-width: 600px) {
     header .FilterBand {
         position: fixed;
         left: 0px;
@@ -2840,7 +2787,7 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
 }
 
 /*----------medium---------------*/
-@media screen and (min-width:481px) {
+@media screen and (min-width: 481px) {
     .filter-items {
         margin-top: 5px !important;
     }
@@ -2854,10 +2801,9 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
         .btn_get_nobat i {
             margin-left: 5px !important;
         }*/
-
 }
 
-@media (min-width:601px) and (max-width:1050px) {
+@media (min-width: 601px) and (max-width: 1050px) {
     .btnFilterBig {
         padding-right: 5px;
         padding-left: 5px;
@@ -2876,7 +2822,7 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
         /*padding-bottom: 100px !important;*/
     }
 
-    .attentions_wr>div {
+    .attentions_wr > div {
         padding-right: 0px !important;
     }
 }
@@ -2903,7 +2849,7 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
         padding-bottom: 100px !important;
     }*/
 
-    .attentions_wr>div {
+    .attentions_wr > div {
         padding-top: 15px !important;
         /*padding-right: 0px !important;*/
         margin-top: 0.5rem;
@@ -2976,18 +2922,18 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     width: 45px;
 }
 
-.attentions_wr>div>div {
+.attentions_wr > div > div {
     margin-right: 10px;
     margin-top: 5px;
 }
 
-.attentions_wr>div>.divider {
+.attentions_wr > div > .divider {
     margin-right: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
-.attentions_wr>div>h5 {
+.attentions_wr > div > h5 {
     margin-right: 10px;
 }
 
@@ -2997,7 +2943,7 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     margin-bottom: 5px;
 }
 
-.attentions_icon_wr>i {
+.attentions_icon_wr > i {
     margin-top: 3px !important;
     margin-right: -7px !important;
     padding-right: 6px !important;
@@ -3005,13 +2951,12 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     line-height: 29px !important;
 }
 
-.clinic_attentions_icon_wr>i {
+.clinic_attentions_icon_wr > i {
     margin-top: 4px !important;
     margin-right: -9px !important;
 }
 
-
-.doctor-list>li {
+.doctor-list > li {
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-bottom: 5px !important;
@@ -3024,22 +2969,22 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     /*display: block !important;*/
 }
 
-.doctor_header_left>div>a {
+.doctor_header_left > div > a {
     margin-top: 35px;
     padding-right: 5px !important;
     padding-left: 10px !important;
 }
 
-.doctor_header_left>div>a>i {
+.doctor_header_left > div > a > i {
     margin-right: 5px !important;
 }
 
-.doctor_header_down>div>a {
+.doctor_header_down > div > a {
     padding-right: 5px !important;
     padding-left: 10px !important;
 }
 
-.doctor_header_down>div>a>i {
+.doctor_header_down > div > a > i {
     margin-right: 5px !important;
 }
 
@@ -3071,13 +3016,11 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     margin-top: 12px;
 }*/
 
-
 .btnExpandFooter {
     position: absolute;
     top: -25px;
     left: 10px;
 }
-
 
 .btnExpandFilter {
     position: absolute;
@@ -3110,7 +3053,6 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
 .reserve_bazar:hover {
     content: url("modern_images/bazar_white.png");
 }
-
 
 .linksWr li a:hover {
     color: #80cbc4 !important;
@@ -3198,7 +3140,6 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     text-align: center;
 }
 
-
 .filter-items .filter-item {
     /*height: 40px;*/
     margin-top: 10px;
@@ -3216,7 +3157,7 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     background-color: #fff;
     color: #3f51b5;
     text-align: center;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     display: inline-block;
     line-height: 36px;
     padding: 1px 10px;
@@ -3227,7 +3168,6 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
 }
-
 
 .filter-items .filter-item .search-item button i {
     font-size: 1.4em;
@@ -3327,7 +3267,8 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     margin-top: 5px;
 }
 
-.search-result ul li {}
+.search-result ul li {
+}
 
 .search-result ul li a {
     display: block;
@@ -3338,11 +3279,6 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
 .search-result ul li a:hover {
     background: #fafafa;
 }
-
-
-
-
-
 
 .select2-container .select2-selection {
     height: 38px;
@@ -3368,11 +3304,11 @@ input[type=text].error:not(.browser-default):focus:not([readonly]) {
     height: 42px !important;
 }
 
-.select2-results li[role=group] strong {
+.select2-results li[role="group"] strong {
     font-weight: bold;
 }
 
-.select2-results li[role=group] ul li {
+.select2-results li[role="group"] ul li {
     padding-right: 25px !important;
 }
 
@@ -3748,7 +3684,7 @@ footer .contactsWr {
 #mpdatepicker-block {
     top: 100px;
     bottom: auto !important;
-    font-family: 'Yekan' !important;
+    font-family: "Yekan" !important;
 }
 
 .modal {
@@ -3778,13 +3714,6 @@ footer .contactsWr {
     color: #333;
     cursor: pointer;
 }
-
-
-
-
-
-
-
 
 @media screen and (max-width: 480px) {
     .doctor-list .collapsible-body {
@@ -3851,7 +3780,6 @@ footer .contactsWr {
 
 /* Essi's Media css */
 @media screen and (max-width: 500px) {
-
     .site-logo {
         width: 96px;
     }
@@ -3901,7 +3829,6 @@ footer .contactsWr {
 }
 
 @media print {
-
     main {
         margin: 10px;
         width: 95%;
@@ -3925,8 +3852,6 @@ footer .contactsWr {
         display: inline-block;
     }
 }
-
-
 
 /*----------------------------------------
     Pre-loader
@@ -4089,7 +4014,8 @@ footer .contactsWr {
     margin: 0 !important;
 }
 
-.mt-10 {}
+.mt-10 {
+}
 
 .p-0 {
     padding: 0 !important;
@@ -4100,9 +4026,11 @@ footer .contactsWr {
 }
 
 .page-section .page-title {
-    font-size: 1.286rem;
-    margin: 1.424rem 0.75rem;
-    padding: 20px;
+    font-size: 1.25rem;
+    margin: 1em 0.8em;
+    padding: 1em;
+    background-color: #008c73 !important;
+    color: white !important;
 }
 
 .bor-t-0 {
@@ -4112,9 +4040,6 @@ footer .contactsWr {
 .bor-b-info {
     border-bottom: 1px solid #00b8d4;
 }
-
-
-
 
 .btn-sm {
     height: 24px;
@@ -4149,7 +4074,6 @@ footer .contactsWr {
 .align-items-stretch {
     align-items: stretch !important;
 }
-
 
 /*.row {
     display: flex;  equal height of the children 
@@ -4192,4 +4116,89 @@ footer .contactsWr {
 
 .cyan-text.text-darken-2 {
     color: #3b811e !important;
+}
+
+#search.cyan.darken-1 {
+    background-color: transparent !important;
+    margin-top: -45px;
+}
+
+#search .select2-container,
+#search .filter-items .filter-item .search-input,
+#search .filter-items .filter-item .search-item button {
+    border: 1px solid #919191 !important;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    overflow: hidden;
+}
+
+#search .select2-container {
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+}
+
+#search .filter-items .filter-item .search-input {
+    border-radius: 0 1em 1em 0;
+    -webkit-border-radius: 0 1em 1em 0;
+}
+
+#search .filter-items .filter-item .search-item button {
+    border-radius: 1em 0 0 1em;
+    -webkit-border-radius: 1em 0 0 1em;
+}
+
+@media only screen and (max-width: 601px) {
+    #search .filter-items .filter-item .search-input,
+    #search .filter-items .filter-item .search-item button {
+        border: 1px solid #919191 !important;
+        border-radius: 1em;
+        -webkit-border-radius: 1em;
+        overflow: hidden;
+    }
+}
+
+.favorite-clinics .fav-clinic-item .address p {
+    height: 2.8em;
+    font-size: 13.5px;
+    line-height: 140%;
+    overflow: hidden;
+    margin: 0.8em 0.5em 0;
+}
+
+.favorite-clinics .fav-clinic-item .address p label,
+.favorite-clinics .fav-clinic-item .address p span {
+    font-size: inherit;
+    line-height: 140%;
+}
+
+.card,
+.clinic-filters,
+.filter-list,
+.page-section .page-title,
+.doctor-page .doctor-item,
+.clinic-page .doctor-item {
+    position: relative;
+    background-color: #fff;
+    transition: box-shadow 0.25s;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    overflow: hidden;
+    box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
+}
+
+.card,
+.doctor-page .doctor-item,
+.clinic-page .doctor-item {
+    margin: 0.5em !important;
+}
+
+.waves-effect {
+    -webkit-border-radius: 0.8em;
+    border-radius: 0.8em;
+}
+
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border-radius: 0.7em;
+    padding-inline-start: 0.3em;
 }
