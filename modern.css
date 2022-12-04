@@ -3212,7 +3212,7 @@ input[type="text"].error:not(.browser-default):focus:not([readonly]) {
 .filter-items .filter-item .search-input {
     height: 38px;
     border: 1px solid #aaa;
-    background-color: #fff;
+    background-color: transparent;
     padding-right: 30px;
     padding-left: 6px;
     font-family: Yekan;
@@ -4251,6 +4251,7 @@ footer .contactsWr {
 .select2-container--default .select2-search--dropdown .select2-search__field {
     border-radius: 0.7em;
     padding-inline-start: 0.3em;
+    background-color: transparent;
 }
 
 #nobatDay {
@@ -4384,4 +4385,25 @@ footer .contactsWr {
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+#DoctorCommentForm textarea {
+    margin: 5px 0px;
+    padding: 10px 5px;
+    border: 1px solid rgb(158, 158, 171);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    outline: none;
+}
+
+#DoctorCommentForm .btn {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.section-doctors .btn-close-search{
+    right: unset;
+    left: 10px;
+    top: 10px;
+    display: none;
 }
