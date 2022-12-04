@@ -3180,7 +3180,6 @@ input[type="text"].error:not(.browser-default):focus:not([readonly]) {
 .filter-items .filter-item .search-item {
     padding: 0;
     margin: 0;
-    margin-top: 1px;
 }
 
         .filter-items .filter-item .search-item button {
@@ -3226,13 +3225,11 @@ input[type="text"].error:not(.browser-default):focus:not([readonly]) {
 }
 
 .filter-items .filter-select {
-    line-height: 20px;
-    padding: 1px;
-    padding-right: 0;
+    padding: 0;
 }
 
 .filter-items .select2-selection {
-    border: 0;
+    border: none;
 }
 
 .select2-container--open .select2-dropdown {
